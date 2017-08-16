@@ -1,0 +1,208 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+html {
+  height: 100vh;
+}
+
+body {
+  background-color: $orange;
+  font-family: $font-family;
+  height: 100vh;
+} 
+
+// Navbar CSS
+.navbar-holder {
+  background-color: $purple;
+}
+
+.navbar {
+  a {
+    border-radius: 0px;
+    color: $white;
+    &:hover{
+      // color:$orange*0.8;
+      cursor: pointer;
+      color: $purple;
+      background-color: $orange;
+      span{
+        // color:$orange*0.8;
+        color: $purple;
+        transition:0.3s;
+      }
+      transition:0.3s;
+    }
+  }
+  border-bottom-width: 0px;
+  border-top-width: 0px;
+  margin-bottom: 0px;
+}
+
+.nav > li > a {
+  &:hover, &:focus {
+    background-color: $orange;
+    color: $white;
+  }
+}
+
+.navbar-brand {
+  padding-top: 14px;
+  span {
+    color: $white;
+    font-size: 50px;
+    content: '';
+    height: 100%;
+    display: inline-block;
+    vertical-align: middle;
+  }
+}
+
+//Login CSS
+.login-panel {
+  padding: 0px;
+}
+
+.panel {
+  border: 0px;
+  border-radius: 0px;
+  margin-bottom: 0px;
+  // height: 622px;
+  background-color: $purple * 1.5;
+  .panel-heading {
+    background-color: $purple * 1.2;
+    border-radius: 0px;
+    color: $white;
+  }
+}
+.panel-login-holder {
+  height: 92.5vh;
+}
+
+.uccility-logo {
+  text-align: center;
+  vertical-align: middle;
+  .uccility_login_logo {
+    height: 200px;
+    margin: 0 auto;
+    margin-bottom: 20px; 
+    &:hover {
+      cursor: pointer;
+    }
+  }
+}
+
+.form-horizontal {
+  .control-label {
+    text-align: center;
+    color: $white;
+  }
+}
+
+.login-form-control {
+  border-radius: 0px;
+  color: black;
+}
+
+.text-center {
+  text-align: center;
+  color: $white;
+  a {
+    color: $white;
+    &:hover {
+      color: $orange;
+    }
+  }
+}
+
+//Activation Page
+.activate-panel {
+  margin-top: 20px;
+  height: 0;
+}
+
+.step-indicator {
+  width: auto;
+}
+.bs-wizard {
+  margin-top: 40px;
+  border-bottom: solid 1px $orange*1.8;
+  padding: 0 0 10px 0;
+  > .bs-wizard-step {
+    padding: 0;
+    position: relative;
+    .bs-wizard-stepnum {
+      color: #595959;
+      font-size: 16px;
+      margin-bottom: 5px;
+    }
+    .bs-wizard-info {
+      color: #999;
+      font-size: 14px;
+    }
+    > {
+      .bs-wizard-dot {
+        position: absolute;
+        width: 30px;
+        height: 30px;
+        display: block;
+        background: $orange*2;
+        top: 45px;
+        left: 50%;
+        margin-top: -15px;
+        margin-left: -15px;
+        border-radius: 50%;
+        &:after {
+          content: ' ';
+          width: 14px;
+          height: 14px;
+          background: $orange;
+          border-radius: 50px;
+          position: absolute;
+          top: 8px;
+          left: 8px;
+        }
+      }
+      .progress {
+        position: relative;
+        border-radius: 0px;
+        height: 8px;
+        box-shadow: none;
+        margin: 20px 0;
+        > .progress-bar {
+          width: 0px;
+          box-shadow: none;
+          background: $purple;
+        }
+      }
+    }
+    &.complete > .progress > .progress-bar {
+      width: 100%;
+    }
+    &.active > .progress > .progress-bar {
+      width: 50%;
+    }
+    &:first-child.active > .progress > .progress-bar {
+      width: 0%;
+    }
+    &:last-child.active > .progress > .progress-bar {
+      width: 100%;
+    }
+    &.disabled > .bs-wizard-dot {
+      background-color: $orange*2;
+      &:after {
+        opacity: 0;
+      }
+    }
+    &:first-child > .progress {
+      left: 50%;
+      width: 50%;
+    }
+    &:last-child > .progress {
+      width: 50%;
+    }
+    &.disabled a.bs-wizard-dot {
+      pointer-events: none;
+    }
+  }
+}
