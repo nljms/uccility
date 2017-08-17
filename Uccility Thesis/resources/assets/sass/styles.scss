@@ -39,12 +39,6 @@ body {
   margin-bottom: 0px;
 }
 
-.nav > li > a {
-  &:hover, &:focus {
-    background-color: $orange;
-    color: $white;
-  }
-}
 
 .navbar-brand {
   padding-top: 14px;
@@ -124,6 +118,7 @@ body {
 .step-indicator {
   width: auto;
 }
+
 .bs-wizard {
   margin-top: 40px;
   border-bottom: solid 1px $orange*1.8;
