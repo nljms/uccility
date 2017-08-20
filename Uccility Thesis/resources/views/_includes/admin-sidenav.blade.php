@@ -6,7 +6,7 @@
                 <img src="{{asset('img/img_avatar3.png')}}" class="img-circle profile_img" alt="avatar_img">
             </div>
             <div class="profile_info">
-                <span>USERNAME</span>
+                <span>Donald Trump</span>
                 <h2>Administrator</h2>
             </div>
         </div>
@@ -74,6 +74,75 @@
                                 </div>
                                 <div class="col-md-2">
                                     <!-- <span class="badge bg-orange pull-right">8</span> -->
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div class="menu_section">
+                <h5>Utilities</h5>
+                <ul class="nav side-menu">
+                    <!-- <li><i class="fa fa-home"></i> <a href="#">Home</a> <span class="badge bg-orange pull-right">8</span></li> -->
+                    <li>
+                        <div class="row">
+                            <div class="side-menu-item col-md-12">
+                                <div class="col-md-2">
+                                    <i class="fa fa-home"></i>
+                                </div>
+                                <div class="col-md-8">
+                                    <a href="#">Home</a>
+                                </div>
+                                <div class="col-md-2">
+                                    <span class="badge bg-orange pull-right">8</span>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+
+                    <li>
+                        <div class="row">
+                            <div class="side-menu-item col-md-12">
+                                <div class="col-md-2">
+                                    <i class="fa fa-home"></i>
+                                </div>
+                                <div class="col-md-8">
+                                    <a href="#">Home</a>
+                                </div>
+                                <div class="col-md-2">
+                                    <span class="badge bg-orange pull-right">3</span>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    
+                    <li>
+                        <div class="row">
+                            <div class="side-menu-item col-md-12">
+                                <div class="col-md-2">
+                                    <i class="fa fa-home"></i>
+                                </div>
+                                <div class="col-md-8">
+                                    <a href="#">Home</a>
+                                </div>
+                                <div class="col-md-2">
+                                    <span class="badge bg-orange pull-right">1</span>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+
+                    <li>
+                        <div class="row">
+                            <div class="side-menu-item col-md-12">
+                                <div class="col-md-2">
+                                    <i class="fa fa-home"></i>
+                                </div>
+                                <div class="col-md-8">
+                                    <a href="#">Home</a>
+                                </div>
+                                <div class="col-md-2">
+                                    <span class="badge bg-orange pull-right">12</span>
                                 </div>
                             </div>
                         </div>

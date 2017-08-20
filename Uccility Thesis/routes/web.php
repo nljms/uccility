@@ -28,7 +28,10 @@ Route::get('/home/logout', 'Auth\LoginController@userLogout')->name('user.logout
 
 // Administration Page, MIS, Coordinator and HR
 Route::prefix('admin')->group(function() {
-    Route::get('/login', 'Auth\AdminLoginController@showLoginForm')->name('admin.login');
+    // Temp
+    Route::get('/users', 'AdminController@users')->name('admin.login');
+    // Temp
+    Route::get('/login', 'AdminLoginController@showLoginForm')->name('admin.login');
     Route::post('/login', 'Auth\AdminLoginController@login')->name('admin.login.submit');
     Route::get('/', 'AdminController@index')->name('admin.dashboard');
     Route::get('/logout', 'Auth\AdminLoginController@logout')->name('admin.logout');

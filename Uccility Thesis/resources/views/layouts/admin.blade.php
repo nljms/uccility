@@ -13,22 +13,33 @@
 </head>
 <body>
 <div class="container-fluid">
-<div class="row">
-	<div class="main_container">
-			<!-- sidenavbar -->
-			@include('_includes.admin-nav')
-            @include('_includes.admin-sidenav')
-			<div class="col-md-10 right_col" role="main">
-				<div class="row">
-					<div class="col-md-12 padd"></div>
-					<div class="col-md-12 dash-info">
-						<h1>Dashboard</h1>
+	<div class="row">
+		<div class="main_container">
+				<!-- sidenavbar -->
+				@include('_includes.admin-nav')
+				@include('_includes.admin-sidenav')
+				<div class="col-md-10 right_col" role="main">
+					<div class="row">
+						<div class="col-md-12 padd"></div>
+						<div class="col-md-12 dash-info">
+							<div class="col-md-3">
+								<h3>Dashboard</h3>
+							</div>
+							<div class="col-md-9 welcome-msg">
+								<h4>Welcome back, Donald Trump</h4>
+							</div>
+							<div class="col-md-12 breadcrumb-holder">
+								@include('_includes.breadcrumbs')
+							</div>
+						</div>
+						@yield('content')
 					</div>
-					@yield('content')
 				</div>
 			</div>
 		</div>
 	</div>
-</div>
 </body>
+<script src="{{ asset('js/app.js') }}"></script>
+<script src="{{ asset('js/Chart.min.js') }}"></script>
+<script src="{{ asset('js/script.js') }}"></script>
 </html>

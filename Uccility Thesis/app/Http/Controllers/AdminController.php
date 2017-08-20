@@ -21,6 +21,12 @@ class AdminController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+    public function users()
+    {
+        return view('admin.data-tables');
+    }
+     
     public function create()
     {
         //

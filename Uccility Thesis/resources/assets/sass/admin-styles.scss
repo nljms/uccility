@@ -1,4 +1,13 @@
 
+.nav {
+    li {
+      .admin-img {
+        padding-bottom: 5px;
+        padding-top: 5px; 
+      }
+    }
+}
+
 .top_nav {
     background-color: rgb(39, 54, 95);
     height: 65px;
@@ -23,7 +32,7 @@
   
   .left_col {
     background-color: rgb(52, 69, 119);
-    height: 92.5vh;
+    height: 91vh;
     padding: 0;
   }
   
@@ -32,6 +41,7 @@
     background-size: cover;
     background-repeat: no-repeat;
     height: 186px;
+    border-bottom: 2px solid $purple;
   }
   
   .profile_pic {
@@ -86,8 +96,6 @@
 
       li {
             padding: 10px;
-            // margin: 5px;
-            // background-color: $purple;
             color: $white;
             text-align: left;
             a {
@@ -108,8 +116,14 @@
 
   
   .badge.bg-orange {
-    background: rgb(252, 115, 74) !important;
-    border: 1px solid rgb(252, 115, 74) !important;
+    background: $orange !important;
+    border: 1px solid $orange !important;
+    color: #fff;
+  }
+
+  .badge.bg-purple {
+    background: $purple !important;
+    border: 1px solid $purple !important;
     color: #fff;
   }
   
@@ -122,6 +136,154 @@
   }
 
   .right_col {
-      background-color: $white;
-      height: 92.5vh;
+      background-color: rgb(244, 244, 244);
+      height: 91vh;
+  }
+
+  .padd {
+    height: 30px;
+    background-color: $purple * 0.6;
+  }
+
+  .breadcrumb-arrow {
+    height: 36px;
+    line-height: 36px;
+    list-style: none;
+    background-color: rgb(244, 244, 244);
+    color: white;
+    font-size: 20px;
+    li {
+      &:first-child a {
+        border-radius: 0px 0 0 0px;
+      }
+      display: inline-block;
+      vertical-align: top;
+      a, span {
+        display: inline-block;
+        vertical-align: top;
+      }
+      &:not(:first-child) {
+        margin-left: -5px;
+      }
+      + li:before {
+        padding: 0;
+        content: "";
+      }
+      span {
+        padding: 0 10px;
+      }
+      a, &:not(:first-child) span {
+        height: 36px;
+        padding: 0 10px 0 15px;
+        line-height: 36px;
+      }
+      &:first-child a {
+        padding: 0 10px;
+      }
+      a {
+        position: relative;
+        color: #fff;
+        text-decoration: none;
+        background-color: rgb(67, 86, 141);
+        border: 1px solid rgb(67, 86, 141);
+      }
+      &:first-child a {
+        padding-left: 10px;
+      }
+      a {
+        &:after {
+          position: absolute;
+          top: -1px;
+          width: 0;
+          height: 0;
+          content: '';
+          border-top: 18px solid transparent;
+          border-bottom: 18px solid transparent;
+        }
+        &:before {
+          position: absolute;
+          top: -1px;
+          width: 0;
+          height: 0;
+          content: '';
+          border-top: 18px solid transparent;
+          border-bottom: 18px solid transparent;
+          right: -10px;
+          z-index: 3;
+          border-left-color: rgb(67, 86, 141);
+          border-left-style: solid;
+          border-left-width: 11px;
+        }
+        &:after {
+          right: -11px;
+          z-index: 2;
+          border-left: 11px solid rgb(47, 66, 121);
+        }
+        &:focus, &:hover {
+          background-color: rgb(57, 76, 131);
+          border: 1px solid rgb(57, 76, 131);
+        }
+        &:focus:before, &:hover:before {
+          border-left-color: rgb(57, 76, 131);
+        }
+      }
+      span {
+        color: white;
+      }
+      .active {
+        background-color: rgb(252, 115, 74);
+        border: 1px solid rgb(252, 115, 74);
+        &:after, &:before {
+          border-left-color: rgb(252, 115, 74);
+        }
+        &:focus, &:hover {
+          background-color: rgb(252, 115, 74);
+          border: 1px solid rgb(252, 115, 74);
+        }
+        &:focus:before, &:hover:before {
+          border-left-color: rgb(252, 115, 74);
+        }
+      }
+    }
+  }
+
+  .admin-photo {
+    height: 50px;
+    background-color: rgba(46, 62, 109, 1);
+    border-color: rgba(46, 62, 109, 1);
+  }
+
+  .welcome-msg {
+    padding: 5px;
+    padding-top: 16px;
+    color: $orange;
+  }
+
+  .contents {
+    padding-left: 20px;
+    padding-right: 20px;
+    // border: 1px solid black;
+    overflow-y: scroll;
+    height: 69.5vh;
+    border-top: 2px solid rgb(200, 200, 200)
+  }
+
+  .content-row {
+    padding: 10px;
+  }
+
+  .content-item {
+    border: 1px solid rgb(200, 200, 200);
+    border-bottom: 2px solid rgb(200, 200, 200);
+    // padding: 0px;
+    background-color: $white;
+  }
+
+  .charts {
+    max-height: 400px;
+  }
+
+  .content-tiles {
+    padding-left: 0px;
+    padding-right: 0px;
   }

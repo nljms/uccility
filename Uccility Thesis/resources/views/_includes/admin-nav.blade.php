@@ -14,7 +14,12 @@
             </div>
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="#">Administrator <span class="caret"></span></a></li>
+                <li>
+                    <a class="admin-img" href="#">
+                        <img src="{{asset('img/img_avatar3.png')}}" alt="profile_pic" class="img-thumbnail img-circle admin-photo">&nbsp;
+                        Donald Trump <span class="caret"></span>
+                    </a>
+                </li>
             </ul>
             </div>
         </div>
