@@ -1,5 +1,5 @@
-<div class="col-md-2 left_col">
-    <div class="left_col">
+<div class="col-md-2 left_col scrollbar" id="style-1">
+    <div class="left_cols">
         <div class="clearfix"></div>
         <div class="profile clearfix">
             <div class="profile_pic">
@@ -17,65 +17,73 @@
                     <!-- <li><i class="fa fa-home"></i> <a href="#">Home</a> <span class="badge bg-orange pull-right">8</span></li> -->
                     <li>
                         <div class="row">
-                            <div class="side-menu-item col-md-12">
-                                <div class="col-md-2">
-                                    <i class="fa fa-home"></i>
+                            <a href="#">
+                                <div class="side-menu-item col-md-12">
+                                    <div class="col-md-2">
+                                        <i class="fa fa-tachometer"></i>
+                                    </div>
+                                    <div class="col-md-8">
+                                        Dashboard
+                                    </div>
+                                    <div class="col-md-2">
+                                        <span class="badge bg-orange pull-right">8</span>
+                                    </div>
                                 </div>
-                                <div class="col-md-8">
-                                    <a href="#">Home</a>
-                                </div>
-                                <div class="col-md-2">
-                                    <span class="badge bg-orange pull-right">8</span>
-                                </div>
-                            </div>
+                            </a>
                         </div>
                     </li>
 
                     <li>
                         <div class="row">
-                            <div class="side-menu-item col-md-12">
-                                <div class="col-md-2">
-                                    <i class="fa fa-home"></i>
+                            <a href="#">
+                                <div class="side-menu-item col-md-12">
+                                    <div class="col-md-2">
+                                        <i class="fa fa-users"></i>
+                                    </div>
+                                    <div class="col-md-8">
+                                        Users
+                                    </div>
+                                    <div class="col-md-2">
+                                        <span class="badge bg-orange pull-right">8</span>
+                                    </div>
                                 </div>
-                                <div class="col-md-8">
-                                    <a href="#">Home</a>
-                                </div>
-                                <div class="col-md-2">
-                                    <!-- <span class="badge bg-orange pull-right">8</span> -->
-                                </div>
-                            </div>
+                            </a>
                         </div>
                     </li>
                     
                     <li>
                         <div class="row">
-                            <div class="side-menu-item col-md-12">
-                                <div class="col-md-2">
-                                    <i class="fa fa-home"></i>
+                            <a href="#">
+                                <div class="side-menu-item col-md-12">
+                                    <div class="col-md-2">
+                                        <i class="fa fa-tachometer"></i>
+                                    </div>
+                                    <div class="col-md-8">
+                                        Dashboard
+                                    </div>
+                                    <div class="col-md-2">
+                                        <span class="badge bg-orange pull-right">8</span>
+                                    </div>
                                 </div>
-                                <div class="col-md-8">
-                                    <a href="#">Home</a>
-                                </div>
-                                <div class="col-md-2">
-                                    <span class="badge bg-orange pull-right">8</span>
-                                </div>
-                            </div>
+                            </a>
                         </div>
                     </li>
 
                     <li>
                         <div class="row">
-                            <div class="side-menu-item col-md-12">
-                                <div class="col-md-2">
-                                    <i class="fa fa-home"></i>
+                            <a href="#">
+                                <div class="side-menu-item col-md-12">
+                                    <div class="col-md-2">
+                                        <i class="fa fa-tachometer"></i>
+                                    </div>
+                                    <div class="col-md-8">
+                                        Dashboard
+                                    </div>
+                                    <div class="col-md-2">
+                                        <span class="badge bg-orange pull-right">8</span>
+                                    </div>
                                 </div>
-                                <div class="col-md-8">
-                                    <a href="#">Home</a>
-                                </div>
-                                <div class="col-md-2">
-                                    <!-- <span class="badge bg-orange pull-right">8</span> -->
-                                </div>
-                            </div>
+                            </a>
                         </div>
                     </li>
                 </ul>
@@ -86,36 +94,56 @@
                     <!-- <li><i class="fa fa-home"></i> <a href="#">Home</a> <span class="badge bg-orange pull-right">8</span></li> -->
                     <li>
                         <div class="row">
-                            <div class="side-menu-item col-md-12">
-                                <div class="col-md-2">
-                                    <i class="fa fa-home"></i>
+                            <a href="#">
+                                <div class="side-menu-item col-md-12">
+                                    <div class="col-md-2">
+                                        <i class="fa fa-commenting-o"></i>
+                                    </div>
+                                    <div class="col-md-8">
+                                        Chats
+                                    </div>
+                                    <div class="col-md-2">
+                                        <span class="badge bg-orange pull-right">8</span>
+                                    </div>
                                 </div>
-                                <div class="col-md-8">
-                                    <a href="#">Home</a>
-                                </div>
-                                <div class="col-md-2">
-                                    <span class="badge bg-orange pull-right">8</span>
-                                </div>
-                            </div>
+                            </a>
                         </div>
                     </li>
 
                     <li>
                         <div class="row">
-                            <div class="side-menu-item col-md-12">
-                                <div class="col-md-2">
-                                    <i class="fa fa-home"></i>
+                            <a href="#">
+                                <div class="side-menu-item col-md-12">
+                                    <div class="col-md-2">
+                                        <i class="fa fa-calendar"></i>
+                                    </div>
+                                    <div class="col-md-8">
+                                        Calendar
+                                    </div>
+                                    <div class="col-md-2">
+                                        <span class="badge bg-orange pull-right">8</span>
+                                    </div>
                                 </div>
-                                <div class="col-md-8">
-                                    <a href="#">Home</a>
-                                </div>
-                                <div class="col-md-2">
-                                    <span class="badge bg-orange pull-right">3</span>
-                                </div>
-                            </div>
+                            </a>
                         </div>
                     </li>
-                    
+                    <li>
+                        <div class="row">
+                            <a href="#">
+                                <div class="side-menu-item col-md-12">
+                                    <div class="col-md-2">
+                                        <i class="fa fa-calendar"></i>
+                                    </div>
+                                    <div class="col-md-8">
+                                        Calendar
+                                    </div>
+                                    <div class="col-md-2">
+                                        <span class="badge bg-orange pull-right">8</span>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    </li>
                     <li>
                         <div class="row">
                             <div class="side-menu-item col-md-12">

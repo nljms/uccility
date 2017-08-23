@@ -1,9 +1,41 @@
 @extends('layouts.admin')
 
 @section('title', 'Administration')
-
+    
 @section('content')
 <div class="col-md-12 contents">
+    <div class="col-md-12 content-tiles">
+        <div class="col-md-3 content-row">
+            <div class="col-md-12 content-item">
+                <h2>Students <i class="fa fa-user-circle"></i></h2>
+                <hr>
+                <h1>3476</h1>
+                <hr>
+                <p>Current Overall Total of Students...</p>
+            </div>
+        </div>
+        <div class="col-md-3 content-row">
+            <div class="col-md-12 content-item">
+                <h2>Professors <i class="fa fa-user-circle-o"></i></h2>
+                <hr>
+                <h1>431</h1>
+                <hr>
+                <p>Current Teaching Professors (Regulars and Non-Regulars)...</p>
+            </div>
+        </div>
+        <div class="col-md-3 content-row">
+            <div class="col-md-12 content-item">
+                <h1>Dashboard Contents</h1>
+                <p>Put your dashboard contents here.</p>
+            </div>
+        </div>
+        <div class="col-md-3 content-row">
+            <div class="col-md-12 content-item">
+                <h1>Dashboard Contents</h1>
+                <p>Put your dashboard contents here.</p>
+            </div>
+        </div>
+    </div>
     <div class="col-md-9 content-row">
         <div class="col-md-12 content-item">
             <h3>A Line Graph About Something</h3><hr />
@@ -29,32 +61,6 @@
             <p>Some Statistics: 512 <span class="badge bg-orange">Average</span></p>
             <p>Some Statistics: 256 <span class="badge bg-orange">Lowest</span></p>
             <p>Output <span class="badge bg-orange">Nothing</span></p>
-        </div>
-    </div>
-    <div class="col-md-12 content-tiles">
-        <div class="col-md-3 content-row">
-            <div class="col-md-12 content-item">
-                <h1>Dashboard Contents</h1>
-                <p>Put your dashboard contents here.</p>
-            </div>
-        </div>
-        <div class="col-md-3 content-row">
-            <div class="col-md-12 content-item">
-                <h1>Dashboard Contents</h1>
-                <p>Put your dashboard contents here.</p>
-            </div>
-        </div>
-        <div class="col-md-3 content-row">
-            <div class="col-md-12 content-item">
-                <h1>Dashboard Contents</h1>
-                <p>Put your dashboard contents here.</p>
-            </div>
-        </div>
-        <div class="col-md-3 content-row">
-            <div class="col-md-12 content-item">
-                <h1>Dashboard Contents</h1>
-                <p>Put your dashboard contents here.</p>
-            </div>
         </div>
     </div>
 </div>

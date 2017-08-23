@@ -25,6 +25,7 @@ class AdminController extends Controller
     public function users()
     {
         return view('admin.data-tables');
+        return view('admin.users');
     }
      
     public function create()

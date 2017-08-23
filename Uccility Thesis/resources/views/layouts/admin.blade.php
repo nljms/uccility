@@ -15,7 +15,6 @@
 <div class="container-fluid">
 	<div class="row">
 		<div class="main_container">
-				<!-- sidenavbar -->
 				@include('_includes.admin-nav')
 				@include('_includes.admin-sidenav')
 				<div class="col-md-10 right_col" role="main">

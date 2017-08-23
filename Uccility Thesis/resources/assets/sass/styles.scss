@@ -39,6 +39,16 @@ body {
   margin-bottom: 0px;
 }
 
+.nav {
+  li {
+    a {
+      &:hover {
+        background-color: $orange;
+      }
+    }
+  }
+}
+
 
 .navbar-brand {
   padding-top: 14px;
