@@ -9,7 +9,7 @@ class AdminController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\Response    
      */
     public function index()
     {
@@ -24,8 +24,17 @@ class AdminController extends Controller
 
     public function users()
     {
-        return view('admin.data-tables');
         return view('admin.users');
+    }
+
+    public function type()
+    {
+        return view('admin.students');
+    }
+
+    public function data()
+    {
+        return view('admin.data');
     }
      
     public function create()

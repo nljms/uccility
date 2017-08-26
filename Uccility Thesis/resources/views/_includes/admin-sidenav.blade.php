@@ -35,7 +35,7 @@
 
                     <li>
                         <div class="row">
-                            <a href="#">
+                            <a href="/admin/users">
                                 <div class="side-menu-item col-md-12">
                                     <div class="col-md-2">
                                         <i class="fa fa-users"></i>
@@ -56,10 +56,10 @@
                             <a href="#">
                                 <div class="side-menu-item col-md-12">
                                     <div class="col-md-2">
-                                        <i class="fa fa-tachometer"></i>
+                                        <i class="fa fa-calendar"></i>
                                     </div>
                                     <div class="col-md-8">
-                                        Dashboard
+                                        Calendar
                                     </div>
                                     <div class="col-md-2">
                                         <span class="badge bg-orange pull-right">8</span>
@@ -77,7 +77,7 @@
                                         <i class="fa fa-tachometer"></i>
                                     </div>
                                     <div class="col-md-8">
-                                        Dashboard
+                                        Analytics
                                     </div>
                                     <div class="col-md-2">
                                         <span class="badge bg-orange pull-right">8</span>

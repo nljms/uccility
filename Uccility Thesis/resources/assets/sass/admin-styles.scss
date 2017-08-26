@@ -53,6 +53,9 @@
     border-radius: 10px;
     // box-shadow: inset 0 0 6px rgba(0,0,0,.3);
     background-color: #c1c1c1;
+    &:active {
+      background-color: #6F6D6D;
+    }
   }
   
   .profile {
@@ -160,7 +163,7 @@
 
   .right_col {
       background-color: rgb(244, 244, 244);
-      height: 91vh;
+      height: 612px;
   }
 
   .padd {
@@ -298,7 +301,7 @@
   .content-item {
     border: 1px solid rgb(200, 200, 200);
     border-bottom: 2px solid rgb(200, 200, 200);
-    // padding: 0px;
+    padding-bottom: 20px;
     background-color: $white;
     h2 {
       color: $purple;
@@ -317,6 +320,10 @@
     padding-right: 0px;
   }
 
-  .search-filers {
-    padding-top: 20px;
+  .bordered-o {
+    border-left: 4px solid $orange;
+  }
+
+  .bordered-p {
+    border-left: 4px solid $purple;
   }
