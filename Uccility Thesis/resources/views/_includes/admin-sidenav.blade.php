@@ -11,6 +11,7 @@
             </div>
         </div>
         <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
+        @role('super admin')
             <div class="menu_section">
                 <h5>Menu</h5>
                 <ul class="nav side-menu">
@@ -177,6 +178,30 @@
                     </li>
                 </ul>
             </div>
+            @endrole
+            @role('professor')
+            <div class="menu_section">
+                <h5>Some Proff</h5>
+                <ul class="nav side-menu">
+                    <!-- <li><i class="fa fa-home"></i> <a href="#">Home</a> <span class="badge bg-orange pull-right">8</span></li> -->
+                    <li>
+                        <div class="row">
+                            <a href="#">
+                                <div class="side-menu-item col-md-12">
+                                    <div class="col-md-2">
+                                        <i class="fa fa-tachometer"></i>
+                                    </div>
+                                    <div class="col-md-8">
+                                        Dashboard
+                                    </div>
+                                    <div class="col-md-2">
+                                        <span class="badge bg-orange pull-right">8</span>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    </li>
+            @endrole
         </div>
     </div>
 </div>

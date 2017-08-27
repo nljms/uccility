@@ -28,7 +28,7 @@ Route::get('/home/profile', 'HomeController@profile')->name('home.profile');
 Route::get('/home/logout', 'Auth\LoginController@userLogout')->name('user.logout');
 
 // Administration Page, MIS, Coordinator and HR
-Route::prefix('admin')->middleware('role:super admin')->group(function() {
+Route::group(['prefix' => 'admin', 'middleware' => ['role:super admin|professor']], function() {
     // Temp
     // Route::get('/users', 'AdminController@users')->name('admin.login');
     // Temp
