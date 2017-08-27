@@ -24,10 +24,11 @@ Auth::routes();
 
 // Users Page, Student and Professor
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/home/profile', 'HomeController@profile')->name('home.profile');
 Route::get('/home/logout', 'Auth\LoginController@userLogout')->name('user.logout');
 
 // Administration Page, MIS, Coordinator and HR
-Route::prefix('admin')->group(function() {
+Route::prefix('admin')->middleware('role:super admin')->group(function() {
     // Temp
     // Route::get('/users', 'AdminController@users')->name('admin.login');
     // Temp
@@ -36,6 +37,7 @@ Route::prefix('admin')->group(function() {
     Route::get('/', 'AdminController@index')->name('admin.dashboard');
     Route::get('/users', 'AdminController@users')->name('admin.users');
     Route::get('/users/students', 'AdminController@type')->name('admin.type');
+    Route::get('/users/students/1', 'AdminController@profile')->name('admin.student.profile');
     Route::get('/data', 'AdminController@data')->name('admin.data');
 
     Route::get('/logout', 'Auth\AdminLoginController@logout')->name('admin.logout');
@@ -45,3 +47,7 @@ Route::prefix('admin')->group(function() {
 	Route::get('/password/reset/{token}', 'Auth\AdminResetPasswordController@showResetForm')->name('admin.password.reset');
 });
 
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

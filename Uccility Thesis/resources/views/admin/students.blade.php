@@ -26,7 +26,7 @@
                 </thead>
                 <tbody>
                     <tr>
-                        <td>1</td>
+                        <td><a href="students/1">1</a></td>
                         <td>20140593</td>
                         <td>Loquine</td>
                         <td>Edilbert</td>

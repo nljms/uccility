@@ -36,6 +36,11 @@ class AdminController extends Controller
     {
         return view('admin.data');
     }
+
+    public function profile()
+    {
+        return view('admin.profile');
+    }
      
     public function create()
     {
