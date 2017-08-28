@@ -167,8 +167,14 @@
   }
 
   .padd {
-    height: 30px;
+    height: 10px;
     background-color: $purple * 0.6;
+  }
+
+  .dash-info {
+    h2 {
+      margin-top: 23px;
+    }
   }
 
   .breadcrumb-arrow {
@@ -290,7 +296,7 @@
     padding-right: 20px;
     // border: 1px solid black;
     overflow-y: scroll;
-    height: 69.5vh;
+    height: 528px;
     border-top: 2px solid rgb(200, 200, 200)
   }
 
@@ -326,4 +332,46 @@
 
   .bordered-p {
     border-left: 4px solid $purple;
+  }
+
+  .profile-pic {
+    text-align: center;
+  }
+
+  .user-profile-pic {
+    height: 180px;
+  }
+
+  .profile-info {
+    padding-top: 10px;
+    .id {
+      text-align: center;
+    }
+    .info-title {
+      font-weight: bold;
+      font-size: 18px;
+    }
+  }
+
+  .profile-data {
+    border: 1px solid rgb(200, 200, 200);
+  }
+  
+  .header {
+    border-bottom: 2px solid $orange;
+  }
+
+  .grade-graph {
+    // border: 1px solid $orange;
+  }
+
+  /* Add Professor Page */
+
+  .file {
+    visibility: hidden;
+    position: absolute;
+  }
+
+  #img-preview {
+    height: 180px;
   }

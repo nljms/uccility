@@ -14,11 +14,23 @@
             </div>
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav navbar-right">
-                <li>
-                    <a class="admin-img" href="#">
+                <li class="dropdown">
+                    <a class="dropdown-toggle admin-img" href="#" data-toggle="dropdown" role="button" aria-expanded="false">
                         <img src="{{asset('img/img_avatar3.png')}}" alt="profile_pic" class="img-thumbnail img-circle admin-photo">&nbsp;
-                        Donald Trump <span class="caret"></span>
+                        {{ Auth::user()->fname }} {{ Auth::user()->lname }} <span class="caret"></span>
                     </a>
+                    <ul class="dropdown-menu" role="menu">
+                        <li>
+                            <a href="{{ route('logout') }}"
+                                onclick="event.preventDefault();
+                                            document.getElementById('logout-form').submit();">
+                                Logout
+                            </a>
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                {{ csrf_field() }}
+                            </form>
+                        </li>
+                    </ul>
                 </li>
             </ul>
             </div>

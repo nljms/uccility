@@ -21,13 +21,10 @@
 					<div class="row">
 						<div class="col-md-12 padd"></div>
 						<div class="col-md-12 dash-info">
-							<div class="col-md-3">
-								<h3>Dashboard</h3>
-							</div>
-							<div class="col-md-9 welcome-msg">
-								<h4>Welcome back, Donald Trump</h4>
-							</div>
-							<div class="col-md-12 breadcrumb-holder">
+							<div class="col-md-2">
+								<h2>Dashboard</h2>
+							</div><br>
+							<div class="col-md-10 breadcrumb-holder">
 								@include('_includes.breadcrumbs')
 							</div>
 						</div>
