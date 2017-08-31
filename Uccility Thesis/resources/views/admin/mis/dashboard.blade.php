@@ -7,34 +7,37 @@
     <div class="col-md-12 content-tiles">
         <div class="col-md-3 content-row">
             <div class="col-md-12 content-item">
-                <h2>Students <i class="fa fa-user-circle"></i></h2>
+                <h2>Users <i class="fa fa-user-circle"></i></h2>
                 <hr>
                 <h1>3476</h1>
                 <hr>
-                <p>Current Overall Total of Students...</p>
+                <p>Current Overall Total of Users...</p>
             </div>
         </div>
-        <div class="col-md-3 content-row">
-            <div class="col-md-12 content-item">
+        <div class="col-md-9 content-row content-item">
+            <div class="col-md-4">
+                <h2>Students <i class="fa fa-user-circle-o"></i></h2>
+                <hr>
+                <h1>65%</h1>
+                <hr>
+                <p>2259 Students</p>
+            </div>
+            <div class="col-md-4 bordered">
                 <h2>Professors <i class="fa fa-user-circle-o"></i></h2>
                 <hr>
-                <h1>431</h1>
+                <h1>25%</h1>
                 <hr>
-                <p>Current Teaching Professors (Regulars and Non-Regulars)...</p>
+                <p>869 Professors (Regulars and Non-Regulars)...</p>
+            </div>
+            <div class="col-md-4">
+                <h2>Others <i class="fa fa-user-circle-o"></i></h2>
+                <hr>
+                <h1>10%</h1>
+                <hr>
+                <p>348 Other university employees...</p>
             </div>
         </div>
-        <div class="col-md-3 content-row">
-            <div class="col-md-12 content-item">
-                <h1>Dashboard Contents</h1>
-                <p>Put your dashboard contents here.</p>
-            </div>
-        </div>
-        <div class="col-md-3 content-row">
-            <div class="col-md-12 content-item">
-                <h1>Dashboard Contents</h1>
-                <p>Put your dashboard contents here.</p>
-            </div>
-        </div>
+        
     </div>
     <div class="col-md-9 content-row">
         <div class="col-md-12 content-item">

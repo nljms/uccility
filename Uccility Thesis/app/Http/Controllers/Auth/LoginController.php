@@ -6,6 +6,8 @@ use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use App\Http\Controllers\Auth\Request;
 
+
+
 class LoginController extends Controller
 {
     /*
@@ -48,16 +50,38 @@ class LoginController extends Controller
 
     public function authenticated()
     {
-        if(auth()->user()->hasRole('super admin'))
+        $user = auth()->user();
+
+        if($user->hasRole('super admin'))
         {
-            return redirect('/admin/users');
+            return redirect('/admin/mis');
         }
-        else if(auth()->user()->hasRole('professor'))
+        else if($user->hasRole('hr'))
         {
-            return redirect('/home/profile');
+            return redirect('/admin/hr');
+        }
+        else if($user->hasRole('registrar'))
+        {
+            return redirect('/admin/registrar');
+        }
+        else if($user->hasRole('department head'))
+        {
+            return redirect('/admin/department');
+        }
+        else if($user->hasRole('coordinator'))
+        {
+            return redirect('/admin/department');
+        }
+        else if($user->hasRole('professor'))
+        {
+            
+        }
+        else if($user->hasRole('student'))
+        {
+
         }
     
-        return redirect('/home');
+        // return redirect('/home');
     }
 
     public function userLogout()

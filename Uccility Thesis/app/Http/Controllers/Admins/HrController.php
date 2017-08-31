@@ -1,19 +1,21 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admins;
 
+
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-class AdminController extends Controller
+class HrController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response    
+     * @return \Illuminate\Http\Response
      */
     public function index()
     {
-        return view('admin.dashboard');
+        return view('admin.hr.dashboard');
     }
 
     /**
@@ -21,27 +23,6 @@ class AdminController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-
-    public function users()
-    {
-        return view('admin.users');
-    }
-
-    public function type()
-    {
-        return view('admin.students');
-    }
-
-    public function data()
-    {
-        return view('admin.data');
-    }
-
-    public function profile()
-    {
-        return view('admin.profile');
-    }
-     
     public function create()
     {
         //
