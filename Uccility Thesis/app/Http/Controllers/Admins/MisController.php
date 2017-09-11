@@ -22,6 +22,31 @@ class MisController extends Controller
         return view('admin.mis.users');
     }
 
+    public function showUserType()
+    {
+        return view('admin.mis.user-list');
+    }
+
+    public function showUserTypeProfile()
+    {
+        return view('admin.mis.user-profile');
+    }
+
+    public function showAnalytics()
+    {
+        return view('admin.mis.analytics');
+    }
+
+    public function messaging()
+    {
+        return view('admin.mis.messaging');
+    }
+
+    public function newsAnnounce()
+    {
+        return view('admin.mis.news-announcement');
+    }
+
     /**
      * Show the form for creating a new resource.
      *

@@ -7,29 +7,25 @@
     <div class="col-md-12 content-tiles">
         <div class="col-md-3 content-row">
             <div class="col-md-12 content-item">
-                <h3>Users</h3>
-                <hr>
-                <h1><i class="fa fa-users"></i> 3476</h1>
-                <hr>
+                <h3>Users</h3><hr>
+                <h1><i class="fa fa-users"></i> 3476</h1><hr>
                 <p>Current Overall Total of Users...</p>
+                <h3>New Users</h3><hr>
+                <h1><i class="fa fa-users"></i> 271</h1><hr>
+                <p>New Students and Professors...</p>
             </div>
         </div>
         <div class="col-md-9 content-wrapper">
             <div class="col-md-12 content-item">
-                <div class="col-md-4">
-                    <h3>Students <span class="badge bg-orange">New 32</span></h3><hr>
-                    <h1><i class="fa fa-graduation-cap"></i> 65%</h1><hr>
-                    <p>2259 Students...</p>
+                <div class="col-md-6">
+                <h3>User Composition</h3>
+                    <canvas id="piechart-users"></canvas><br>
+                    <p>Students: 12023 | Professors: 3812 | Others: 761</p>
                 </div>
-                <div class="col-md-4 bordered">
-                    <h3>Professors <span class="badge bg-orange">New 13</span></h3><hr>
-                    <h1><i class="fa fa-user-circle-o"></i> 25%</h1><hr>
-                    <p>869 Professors...</p>
-                </div>
-                <div class="col-md-4">
-                    <h3>Others </h3><hr>
-                    <h1><i class="fa fa-id-badge"></i> 10%</h1><hr>
-                    <p>348 Other university employees...</p>
+                <div class="col-md-6">
+                <h3>User Distribution</h3>
+                    <canvas id="piechart-distribute"></canvas><br>
+                    <p>Students: 8112 | Professors: 4112 | Others: 3121</p>
                 </div>
             </div>
         </div>

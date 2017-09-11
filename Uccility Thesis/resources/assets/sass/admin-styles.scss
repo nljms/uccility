@@ -379,3 +379,81 @@
   #img-preview {
     height: 180px;
   }
+
+  .content-wrapper {
+    padding: 10px;
+  }
+
+  /* Student Profile */
+
+  .nav-tabs {
+    border-bottom: 0px;
+    > li {
+      > a {
+        color: $orange;
+        font-size: 18px;
+        font-weight: bold;
+        border-radius: 0px;
+        &:hover {
+          background-color: $purple * 1.5;
+          color: $white;
+        }
+      }
+      &.active > a {
+        &,
+        &:hover,
+        &:focus {
+          color: $purple;
+          background-color: transparent;
+          border: transparent;
+          border-bottom: 4px solid $orange;
+          cursor: default;
+        }
+      }
+    }
+  }
+
+  .date-identifier {
+    font-size: 14px;
+    font-weight: normal;
+  }
+
+  .file-logo {
+    font-size: 100px;
+  }
+
+  .record-info {
+    font-size: 45px;
+    vertical-align: middle;
+  }
+
+  .nav {
+    .open {
+      > a {
+        background-color: $orange;
+        &:focus {
+          background-color: $orange;
+        }
+      }
+    }
+  }
+
+  .dropdown-menu {
+    min-width: 202px;
+  }
+
+  .news-logo {
+    color: $orange;
+    font-size: 22px;
+  }
+
+  .professor_form {
+    .form-control {
+      color: black;
+    }
+  }
+
+  // .form-control:focus {
+  //   border-color: $orange;
+  //   box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgb(255, 189, 0);
+  // }

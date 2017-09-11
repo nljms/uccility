@@ -66,7 +66,7 @@ class LoginController extends Controller
         }
         else if($user->hasRole('department head'))
         {
-            return redirect('/admin/department');
+            return redirect('/admin/department-head');
         }
         else if($user->hasRole('coordinator'))
         {

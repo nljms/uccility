@@ -70,7 +70,7 @@ $(document).ready(function() {
             datasets: [
                 {
                     label: 'GWA Over the Years',
-                    backgroundColor: 'rgba(52, 69, 119, 0.5)',
+                    backgroundColor: 'rgba(52, 69, 119, 0.8)',
                     data: [1.75, 1.50, 2.00, 1.25]
                 }
             ]

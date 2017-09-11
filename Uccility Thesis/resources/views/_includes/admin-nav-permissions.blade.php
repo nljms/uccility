@@ -3,7 +3,7 @@
     <ul class="nav side-menu">
         <li>
             <div class="row">
-                <a href="#">
+                <a href="/admin/">
                     <div class="side-menu-item col-md-12">
                         <div class="col-md-2">
                             <i class="fa fa-tachometer"></i>
@@ -17,15 +17,15 @@
         </li>
 
     @role('super admin')
-        <li>
+        <li >
             <div class="row">
-                <a href="/admin/users">
+                <a href="/admin/mis/users">
                     <div class="side-menu-item col-md-12">
                         <div class="col-md-2">
                             <i class="fa fa-users"></i>
                         </div>
                         <div class="col-md-8">
-                            Users
+                            Users and Roles
                         </div>
                     </div>
                 </a>
@@ -34,7 +34,7 @@
 
         <li>
             <div class="row">
-                <a href="#">
+                <a href="/admin/mis/analytics">
                     <div class="side-menu-item col-md-12">
                         <div class="col-md-2">
                             <i class="fa fa-tachometer"></i>
@@ -66,10 +66,10 @@
 
         <li>
             <div class="row">
-                <a href="#">
+                <a href="/admin/hr/evaluation">
                     <div class="side-menu-item col-md-12">
                         <div class="col-md-2">
-                            <i class="fa fa-pencil"></i>
+                            <i class="fa fa-file"></i>
                         </div>
                         <div class="col-md-8">
                             Evaluations
@@ -97,33 +97,18 @@
         </li>
         <li>
             <div class="row">
-                <a href="#">
+                <a href="/admin/registrar/records">
                     <div class="side-menu-item col-md-12">
                         <div class="col-md-2">
-                            <i class="fa fa-graduation-cap"></i>
+                            <i class="fa fa-file"></i>
                         </div>
                         <div class="col-md-8">
-                            Students
+                            Records
                         </div>
                     </div>
                 </a>
             </div>
         </li>
-        <li>
-            <div class="row">
-                <a href="#">
-                    <div class="side-menu-item col-md-12">
-                        <div class="col-md-2">
-                            <i class="fa fa-users"></i>
-                        </div>
-                        <div class="col-md-8">
-                            Grades
-                        </div>
-                    </div>
-                </a>
-            </div>
-        </li>
-
         @endrole()
 
     </ul>
@@ -138,25 +123,7 @@
         @role('super admin|hr|registrar|department head|coordinator|student assistant')
         <li>
             <div class="row">
-                <a href="#">
-                    <div class="side-menu-item col-md-12">
-                        <div class="col-md-2">
-                            <i class="fa fa-commenting-o"></i>
-                        </div>
-                        <div class="col-md-8">
-                            Chats
-                        </div>
-                        <div class="col-md-2">
-                            <span class="badge bg-orange pull-right">8</span>
-                        </div>
-                    </div>
-                </a>
-            </div>
-        </li>
-
-        <li>
-            <div class="row">
-                <a href="#">
+                <a href="/admin/mis/news-and-announcements">
                     <div class="side-menu-item col-md-12">
                         <div class="col-md-2">
                             <i class="fa fa-calendar"></i>
@@ -171,35 +138,8 @@
                 </a>
             </div>
         </li>
-        @endrole()
-        <li>
-            <div class="row">
-                <a href="#">
-                    <div class="side-menu-item col-md-12">
-                        <div class="col-md-2">
-                            <i class="fa fa-calendar"></i>
-                        </div>
-                        <div class="col-md-8">
-                            Calendar
-                        </div>
-                    </div>
-                </a>
-            </div>
-        </li>
-        <li>
-            <div class="row">
-                <a href="#">
-                    <div class="side-menu-item col-md-12">
-                        <div class="col-md-2">
-                            <i class="fa fa-building"></i>
-                        </div>
-                        <div class="col-md-8">
-                            Rooms
-                        </div>
-                    </div>
-                </a>
-            </div>
-        </li>
+        @endrole
+        @role('super admin')
         <li>
             <div class="row">
                 <div class="side-menu-item col-md-12">
@@ -225,8 +165,9 @@
                 </div>
             </div>
         </li>
+        @endrole
     </ul>
 </div>
-@role('hr')
+@role('department head')
 
 @endrole

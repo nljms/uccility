@@ -3,8 +3,10 @@
 @section('content')
 <div class="container-fluid">
     <div class="row">
-        <div class="col-md-9 content-panel"></div>
-        <div class="col-md-3 login-panel">
+        <div class="col-md-9 content-panel" style="padding: 0px;">
+            <img src="{{ asset('img/ucc.jpg') }}" alt="" style="width: 1012px; padding:0px;">
+        </div>
+        <div class="col-md-3 login-panel pull-right" style="position: relative;">
             <div class="panel panel-default panel-login-holder">
                 <div class="panel-heading">Login</div>
                 <div class="panel-body">

@@ -25,7 +25,7 @@ class HrController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.hr.create');
     }
 
     /**
@@ -36,7 +36,13 @@ class HrController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // Server side validations
+        $this->validate($request, [
+            'last_name' => 'required|min:2',
+            'first_name' => 'required|min:2'
+        ]);
+
+        dd($request->all());
     }
 
     /**
