@@ -3,10 +3,10 @@
         <div class="clearfix"></div>
         <div class="profile clearfix">
             <div class="profile_pic">
-                <img src="{{asset('img/img_avatar3.png')}}" class="img-circle profile_img" alt="avatar_img">
+                <img src="{{ asset('storage/avatar/'.Auth::user()->photo) }}" class="img-circle profile_img" alt="avatar_img">
             </div>
             <div class="profile_info">
-                <span>{{ Auth::user()->fname }} {{ Auth::user()->lname }}</span>
+                <span>{{ Auth::user()->first_name }} {{ Auth::user()->last_name }}</span>
                 @foreach(Auth::user()->roles as $role)
                 <p>{{ $role->display_name }}</p>
                 @endforeach

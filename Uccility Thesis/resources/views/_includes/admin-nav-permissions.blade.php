@@ -66,7 +66,7 @@
 
         <li>
             <div class="row">
-                <a href="/admin/hr/evaluation">
+                <a href="/admin/hr/evaluations">
                     <div class="side-menu-item col-md-12">
                         <div class="col-md-2">
                             <i class="fa fa-file"></i>
@@ -110,6 +110,37 @@
             </div>
         </li>
         @endrole()
+
+        @role('department head')
+        <li>
+            <div class="row">
+                <a href="/admin/registrar/records">
+                    <div class="side-menu-item col-md-12">
+                        <div class="col-md-2">
+                            <i class="fa fa-file"></i>
+                        </div>
+                        <div class="col-md-8">
+                            Grade Evaluation
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </li>
+        <li>
+            <div class="row">
+                <a href="/admin/registrar/records">
+                    <div class="side-menu-item col-md-12">
+                        <div class="col-md-2">
+                            <i class="fa fa-file"></i>
+                        </div>
+                        <div class="col-md-8">
+                            Class Scheduling
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </li>
+        @endrole
 
     </ul>
 </div>

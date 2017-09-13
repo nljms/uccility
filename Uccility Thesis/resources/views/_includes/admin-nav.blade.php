@@ -16,8 +16,8 @@
             <ul class="nav navbar-nav navbar-right">
                 <li class="dropdown">
                     <a class="dropdown-toggle admin-img" href="#" data-toggle="dropdown" role="button" aria-expanded="false">
-                        <img src="{{asset('img/img_avatar3.png')}}" alt="profile_pic" class="img-thumbnail img-circle admin-photo">&nbsp;
-                        {{ Auth::user()->fname }} {{ Auth::user()->lname }} <span class="caret"></span>
+                        <img src="{{ asset('storage/avatar/'.Auth::user()->photo) }}" alt="profile_pic" class="img-thumbnail img-circle admin-photo">&nbsp;
+                        {{ Auth::user()->first_name }} {{ Auth::user()->last_name }} <span class="caret"></span>
                     </a>
                     <ul class="dropdown-menu" role="menu">
                         <li>

@@ -22,6 +22,10 @@ Auth::routes();
 Route::get('/list', 'SampleController@index')->name('list');
 
 // Users Page, Student and Professor
+Route::get('/professor', function(){
+    return view('professor.dashboard');
+});
+
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/home/profile', 'HomeController@profile')->name('home.profile');
 Route::get('/home/logout', 'Auth\LoginController@userLogout')->name('user.logout');
@@ -48,6 +52,10 @@ Route::group(['prefix' => 'admin', 'middleware' => ['role:super admin|hr|registr
         Route::get('/', 'Admins\HrController@index')->name('hr.dashboard');
         Route::get('/create', 'Admins\HrController@create')->name('hr.create');
         Route::post('/create', 'Admins\HrController@store');
+        Route::get('/professors', 'Admins\HrController@showProfessors')->name('hr.professors');
+        Route::get('/professors/profile/{user_id}', 'Admins\HrController@show')->name('hr.profile');
+        Route::get('/evaluations', 'Admins\HrController@showEvaluations')->name('hr.evaluations');
+
     });
 
     // Registrar

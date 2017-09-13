@@ -2,28 +2,36 @@
 
 return [
     'role_structure' => [
-        'superadministrator' => [
-            'users' => 'c,r,u,d',
-            'acl' => 'c,r,u,d',
-            'profile' => 'r,u'
+        'super admin' => [
+            
         ],
-        'administrator' => [
-            'users' => 'c,r,u,d',
-            'profile' => 'r,u'
+        'hr' => [
+            
         ],
-        'user' => [
-            'profile' => 'r,u'
+        'registrar' => [
+            
         ],
+        'depatment_head' => [
+            
+        ],
+        'coordinator' => [
+            
+        ],
+        'student_assistant' => [
+            
+        ],
+        'professor' => [
+            
+        ],
+        'student' => [
+            
+        ],
+        
     ],
     'permission_structure' => [
-        'cru_user' => [
-            'profile' => 'c,r,u'
-        ],
+        
     ],
     'permissions_map' => [
-        'c' => 'create',
-        'r' => 'read',
-        'u' => 'update',
-        'd' => 'delete'
+        
     ]
 ];

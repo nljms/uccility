@@ -35,4 +35,9 @@ class HomeController extends Controller
     {
         return view('navlist');
     }
+
+    public function professor()
+    {
+        return view('professor.dashboard');
+    }
 }

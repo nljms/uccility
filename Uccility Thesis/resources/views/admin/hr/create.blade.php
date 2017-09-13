@@ -9,11 +9,20 @@
             <div class="col-md-12 content-item">
                 <h2>Personal Information</h2><hr>
                 @include('_includes.errors')
-                <form method="POST" action="create" class="professor_form" id="professor_form">
+                <form method="POST" action="create" class="professor_form" id="professor_form" enctype="multipart/form-data">
                 {{ csrf_field() }} 
                     <div class="col-md-4 form-group">
+                        <label for="image">Image</label>
                         <div class="img-holder">
-                            
+                            <img src="/img/img_avatar3.png" id="img-preview" class="user-img img-thumbnail img-responsive">
+                        </div><br>
+                        <input type="file" name="img[]" class="file">
+                        <div class="input-group col-md-8">
+                            <span class="input-group-addon"><i class="fa fa-image"></i></span>
+                            <input type="text" class="form-control input-md" disabled placeholder="Upload Image" id="image" accept="image/*">
+                            <span class="input-group-btn">
+                                <button id="browse" class="browse btn btn-primary" type="button"><i class="fa fa-search"></i></button>
+                            </span>
                         </div>
                     </div>
                     <div class="col-md-4 form-group">
@@ -30,10 +39,35 @@
                     </div>
                     <div class="col-md-4 form-group">
                         <label class="" for="extension">Extension name</label>
-                        <select name="extension" id="extension" class="form-control">
+                        <select name="extension_name" id="extension" class="form-control">
                             <option value=""></option>
                             <option value="Jr">Jr</option>
                             <option value="Sr">Sr</option>
+                        </select>
+                    </div>
+                    <div class="col-md-4 form-group">
+                        <label class="" for="employment">Extension name</label>
+                        <select name="employment_status" id="employment" class="form-control">
+                            <option value="Part time">Part time</option>
+                            <option value="Regular">Regular</option>
+                        </select>
+                    </div>
+                    <div class="col-md-4 form-group">
+                        <label class="" for="department">Department</label>
+                        <select name="department_id" id="department" class="form-control">
+                            <option value=""></option>
+                            @foreach($departments as $department)
+                            <option value="{{$department->id}}">{{ $department->description }}</option>
+                            @endforeach
+                        </select>
+                    </div>
+                    <div class="col-md-4 form-group">
+                        <label class="" for="campus">Campus</label>
+                        <select name="campus" id="campus" class="form-control">
+                            <option value=""></option>
+                            <option value="Camarin">Camarin</option>
+                            <option value="Congress">Congress</option>
+                            <option value="Main">Main</option>
                         </select>
                     </div>
                     <div class="col-md-4 form-group">
@@ -52,7 +86,7 @@
                         </select>
                     </div>
                     <div class="col-md-4 form-group">
-                        <label class="" for="civil_status">Gender</label>
+                        <label class="" for="civil_status">Civil Status</label>
                         <select name="civil_status" id="civil_status" class="form-control" required>
                             <option value="Single">Single</option>
                             <option value="Married">Married</option>
@@ -60,39 +94,13 @@
                             <option value="Widowed">Widowed</option>
                         </select>
                     </div>
-                    <div class="col-md-2 form-group">
-                        <label class="" for="height">Height(m)</label>
-                        <input type="number" name="height" id="height" placeholder="m" class="form-control" required>
-                    </div>
-                    <div class="col-md-2 form-group">
-                        <label class="" for="weight">Weight(kg)</label>
-                        <input type="number" name="weight" id="weight" placeholder="kg" class="form-control" required>
-                    </div>
-                    <div class="col-md-4 form-group">
-                        <label class="" for="blood_type">Blood Type</label>
-                        <select name="blood_type" id="blood_type" class="form-control" required>
-                            <option value="O -">O -</option>
-                            <option value="O +">O +</option>
-                            <option value="A -">A -</option>
-                            <option value="A +">A +</option>
-                            <option value="B -">B -</option>
-                            <option value="B +">B +</option>
-                            <option value="AB -">AB -</option>
-                            <option value="AB +">AB +</option>
-                        </select>
-                    </div>
-
                     <div class="col-md-12 form-group">
-                        <label class="" for="residential">Residential Address</label>
-                        <textarea name="residential" id="residential" rows="2" cols="" class="form-control"></textarea>    
+                        <label class="" for="residential">Current Address</label>
+                        <textarea name="current_address" id="residential" rows="2" cols="" class="form-control"></textarea>    
                     </div>
                     <div class="col-md-12 form-group">
                         <label class="" for="permanent">Permanent Address</label>
-                        <textarea name="permanent" id="permanent" rows="2" cols="" class="form-control"></textarea>    
-                    </div>
-                    <div class="col-md-4 form-group">
-                    <label class="" for="telephone_no">Telephone No.</label>
-                        <input type="text" name="telehone_no" id="telephone_no" placeholder="Telephone No." class="form-control" autofocus required>
+                        <textarea name="permanent_address" id="permanent" rows="2" cols="" class="form-control"></textarea>    
                     </div>
                     <div class="col-md-4 form-group">
                         <label class="" for="mobile_no">Mobile No.</label>
@@ -101,6 +109,15 @@
                     <div class="col-md-4 form-group">
                         <label class="" for="email">Email Address</label>
                         <input type="email" name="email" id="email" placeholder="Email Address" class="form-control" required>
+                    </div>
+
+                    <div class="col-md-4 form-group">
+                        <label class="" for="username">Username</label>
+                        <input type="text" name="username" id="username" placeholder="Username" class="form-control" required>
+                    </div>
+                    <div class="col-md-4 form-group">
+                        <label class="" for="password">Password</label>
+                        <input type="password" name="password" id="password" placeholder="Password" class="form-control" required>
                     </div>
 
                     <div class="col-md-4 col-md-offset-5">

@@ -170,6 +170,7 @@ return [
         /*
          * Third Party Packages...
          */
+        AdvanceSearch\AdvanceSearchProvider\AdvanceSearchProvider::class,
         Laratrust\LaratrustServiceProvider::class,
         /*
          * Application Service Providers...
@@ -224,6 +225,7 @@ return [
         'Response' => Illuminate\Support\Facades\Response::class,
         'Route' => Illuminate\Support\Facades\Route::class,
         'Schema' => Illuminate\Support\Facades\Schema::class,
+        'Search' => AdvanceSearch\AdvanceSearchProvider\Facades\SearchFacades::class,
         'Session' => Illuminate\Support\Facades\Session::class,
         'Storage' => Illuminate\Support\Facades\Storage::class,
         'URL' => Illuminate\Support\Facades\URL::class,

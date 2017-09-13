@@ -70,7 +70,11 @@ class LoginController extends Controller
         }
         else if($user->hasRole('coordinator'))
         {
-            return redirect('/admin/department');
+            return redirect('/admin/coordinator');
+        }
+        else if($user->hasRole('student assistant'))
+        {
+            return redirect('/admin/student-assistant');
         }
         else if($user->hasRole('professor'))
         {
