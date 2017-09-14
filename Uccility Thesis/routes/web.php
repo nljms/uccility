@@ -19,6 +19,11 @@ Route::get('/', function () {
 
 Auth::routes();
 
+Route::get('/activate', 'ActivateAccountController@step1')->name('activate.step1');
+Route::get('/activate/step1', 'ActivateAccountController@step1')->name('activate.step1');
+Route::get('/activate/step2', 'ActivateAccountController@step2')->name('activate.step2');
+Route::get('/activate/step3', 'ActivateAccountController@step3')->name('activate.step3');
+
 Route::get('/list', 'SampleController@index')->name('list');
 
 // Users Page, Student and Professor
@@ -38,7 +43,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['role:super admin|hr|registr
 
     // Super Admin(MIS)
     Route::group(['prefix' => 'mis', 'middleware' => ['role:super admin']], function(){
-        Route::get('/', 'Admins\MisController@index')->name('mis.dashboard');
+        Route::get('/', 'Admins\MisController@index')->name('dashboard');
         Route::get('/news-and-announcements', 'Admins\MisController@newsAnnounce')->name('registrar.news-announcements');
         Route::get('/messaging', 'Admins\MisController@messaging')->name('registrar.messaging');
         Route::get('/analytics', 'Admins\MisController@showAnalytics')->name('mis.analytics');

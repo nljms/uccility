@@ -21,8 +21,8 @@
 					<div class="row">
 						<div class="col-md-12 padd"></div>
 						<div class="col-md-12 dash-info">
-							<div class="col-md-12 breadcrumb-holder">
-								@include('_includes.breadcrumbs')
+							<div class="col-md-12">
+								<h1>@yield('title')</h1>
 							</div>
 						</div>
 						@yield('content')
