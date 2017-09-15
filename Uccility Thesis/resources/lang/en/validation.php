@@ -100,8 +100,8 @@ return [
     */
 
     'custom' => [
-        'attribute-name' => [
-            'rule-name' => 'custom-message',
+        'found' => [
+            'results' => 'no user found',
         ],
     ],
 

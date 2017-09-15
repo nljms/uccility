@@ -7,24 +7,49 @@
             <div class="panel panel-default">
                 <div class="panel-heading">Activate Account</div>
                 <div class="panel-body">
-                    <form class="form-horizontal" method="POST" action="">
+                @include('_includes.errors')
+                    <form class="form-horizontal" method="POST" action="/activate/step2">
                         {{ csrf_field() }}
+
+                        <div class="form-group{{ $errors->has('address') ? ' has-error' : '' }}">
+                            <div class="col-md-8 col-md-offset-2">
+                                <textarea id="address" name="address" rows="2" cols="" class="form-control custom-fields" placeholder="Address" required autofocus></textarea>
+                                @if ($errors->has('address'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('address') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                            <label for="address" class="col-md-12 sr-only">Address</label>
+                        </div>
 
                         <div class="form-group{{ $errors->has('stud_num') ? ' has-error' : '' }}">
                             <div class="col-md-8 col-md-offset-2">
-                                <input id="stud_num" type="text" class="form-control custom-fields" name="stud_num" value="{{ old('stud_num') }}" placeholder="Address" required autofocus>
-                                
+                                <textarea id="address" name="city_address" rows="2" cols="" class="form-control custom-fields" placeholder="City Address" required autofocus></textarea>
                                 @if ($errors->has('stud_num'))
                                     <span class="help-block">
                                         <strong>{{ $errors->first('stud_num') }}</strong>
                                     </span>
                                 @endif
                             </div>
+                            <label for="address" class="col-md-12 sr-only">City Address</label>
+                        </div>
+                        
+                        <div class="form-group{{ $errors->has('stud_num') ? ' has-error' : '' }}">
+                            <div class="col-md-8 col-md-offset-2">
+                                <input id="first_name" type="text" class="form-control custom-fields" name="zip_code" value="{{ old('first_name') }}" placeholder="Zip code" required>
+                                @if ($errors->has('stud_num'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('stud_num') }}</strong>
+                                    </span>
+                                @endif
+                            </div>  
+                            <label for="address" class="col-md-12 sr-only">Zipcode</label>
                         </div>
 
                         <div class="form-group{{ $errors->has('first_name') ? ' has-error' : '' }}">
                             <div class="col-md-8 col-md-offset-2">
-                                <input id="first_name" type="text" class="form-control custom-fields" name="first_name" value="{{ old('first_name') }}" placeholder="Mobile no." required>
+                                <input id="first_name" type="text" class="form-control custom-fields" name="mobile_no" value="{{ old('first_name') }}" placeholder="Mobile no." required>
                                 @if ($errors->has('first_name'))
                                     <span class="help-block">
                                         <strong>{{ $errors->first('first_name') }}</strong>
@@ -35,26 +60,78 @@
 
                         <div class="form-group{{ $errors->has('last_name') ? ' has-error' : '' }}">
                             <div class="col-md-8 col-md-offset-2">
-                                <input id="last_name" type="text" class="form-control custom-fields" name="last_name" value="{{ old('last_name') }}" required>
+                                <input id="date-of-birth" type="date" class="form-control custom-fields" name="date_of_birth" value="{{ old('last_name') }}" placeholder="Date of Birth" required>
                                 @if ($errors->has('first_name'))
                                     <span class="help-block">
                                         <strong>{{ $errors->first('last_name') }}</strong>
                                     </span>
                                 @endif
                             </div>
-                            <label for="email" class="col-md-12 control-label">Last Name</label>
+                            <label for="name" class="col-md-12 control-label">Date of Birth</label>
                         </div>
 
-                        <div class="form-group{{ $errors->has('middle_name') ? ' has-error' : '' }}">
+                        <div class="form-group{{ $errors->has('gender') ? ' has-error' : '' }}">
                             <div class="col-md-8 col-md-offset-2">
-                                <input id="middle_name" type="text" class="form-control custom-fields" name="middle_name" value="{{ old('first_name') }}" required>
-                                @if ($errors->has('middle_name'))
+                                <select id="gender" class="form-control custom-fields" name="gender">
+                                    <option value="Male">Male</option>
+                                    <option value="Female">Female</option>
+                                </select>    
+                                @if ($errors->has('gender'))
                                     <span class="help-block">
-                                        <strong>{{ $errors->first('middle_name') }}</strong>
+                                        <strong>{{ $errors->first('gender') }}</strong>
                                     </span>
                                 @endif
                             </div>
-                            <label for="email" class="col-md-12 control-label">Middle Name</label>
+                            <label for="gender" class="col-md-12 control-label">Gender</label>
+                        </div>
+
+                        <div class="form-group{{ $errors->has('civil_status') ? ' has-error' : '' }}">
+                            <div class="col-md-8 col-md-offset-2">
+                                <select id="civil-status" class="form-control custom-fields" name="civil_status">
+                                    <option value="Single">Single</option>
+                                    <option value="Married">Married</option>
+                                    <option value="Devorced">Devorced</option>
+                                </select>    
+                                @if ($errors->has('civil_status'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('civil_status') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                            <label for="gender" class="col-md-12 control-label">Civil Status</label>
+                        </div>
+                 
+                        <div class="form-group{{ $errors->has('place_of_birth') ? ' has-error' : '' }}">
+                            <div class="col-md-8 col-md-offset-2">
+                                <input id="place-of-birth" type="text" class="form-control custom-fields" name="place_of_birth" value="{{ old('place_of_birth') }}" placeholder="Place of Birth" required>
+                                @if ($errors->has('place_of_birth'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('place_of_birth') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+
+                        <div class="form-group{{ $errors->has('guardian') ? ' has-error' : '' }}">
+                            <div class="col-md-8 col-md-offset-2">
+                                <input id="guardian" type="text" class="form-control custom-fields" name="guardian" value="{{ old('guardian') }}" placeholder="Guardian" required>
+                                @if ($errors->has('guardian'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('guardian') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+
+                        <div class="form-group{{ $errors->has('first_name') ? ' has-error' : '' }}">
+                            <div class="col-md-8 col-md-offset-2">
+                                <input id="first_name" type="text" class="form-control custom-fields" name="contact_no" value="{{ old('first_name') }}" placeholder="Contact no." required>
+                                @if ($errors->has('first_name'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('first_name') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
                         </div>
 
                         <div class="form-group">
@@ -69,25 +146,32 @@
                 <div class="panel-footer">
                     <div class="container step-indicator">
                         <div class="row bs-wizard" style="border-bottom:0;"> 
-                            <div class="col-xs-4 bs-wizard-step complete">
+                            <div class="col-xs-3 bs-wizard-step complete">
                                 <div class="text-center bs-wizard-stepnum">Step 1</div>
                                     <div class="progress"><div class="progress-bar"></div></div>
                                     <a href="#" class="bs-wizard-dot done"></a>
                                     <div class="bs-wizard-info text-center"> Primary Info</div>
                                 </div>
                                     
-                                <div class="col-xs-4 bs-wizard-step active">
+                                <div class="col-xs-3 bs-wizard-step active">
                                     <div class="text-center bs-wizard-stepnum active">Step 2</div>
                                     <div class="progress"><div class="progress-bar"></div></div>
                                     <a href="#" class="bs-wizard-dot active"></a>
                                     <div class="bs-wizard-info text-center active">Personal Info</div>
                                 </div>
                                     
-                                <div class="col-xs-4 bs-wizard-step">
+                                <div class="col-xs-3 bs-wizard-step">
                                     <div class="text-center bs-wizard-stepnum">Step 3</div>
                                     <div class="progress"><div class="progress-bar"></div></div>
                                     <a href="#" class="bs-wizard-dot"></a>
                                     <div class="bs-wizard-info text-center">Credentials</div>
+                                </div>
+
+                                <div class="col-xs-3 bs-wizard-step">
+                                    <div class="text-center bs-wizard-stepnum">Step 4</div>
+                                    <div class="progress"><div class="progress-bar"></div></div>
+                                    <a href="#" class="bs-wizard-dot"></a>
+                                    <div class="bs-wizard-info text-center">Complete</div>
                                 </div>
                                 </div>
                             </div>     

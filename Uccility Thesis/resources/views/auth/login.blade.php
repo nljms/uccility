@@ -20,7 +20,7 @@
                         <div class="form-group{{ $errors->has('login') ? ' has-error' : '' }}">
 
                             <div class="col-md-10 col-md-offset-1">
-                                <input id="email" type="text" class="form-control login-form-control" name="login" placeholder="email address or username" value="{{ old('login') }}" required autofocus>
+                                <input id="email" type="text" class="form-control login-form-control custom-fields" name="login" placeholder="email address or username" value="{{ old('login') }}" required autofocus>
 
                                 @if ($errors->has('login'))
                                     <span class="help-block">
@@ -33,7 +33,7 @@
                         <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
                         
                             <div class="col-md-10 col-md-offset-1">
-                                <input id="password" type="password" class="form-control login-form-control" name="password" placeholder="password" required>
+                                <input id="password" type="password" class="form-control login-form-control custom-fields" name="password" placeholder="password" required>
 
                                 @if ($errors->has('password'))
                                     <span class="help-block">

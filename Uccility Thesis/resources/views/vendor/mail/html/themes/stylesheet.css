@@ -1,0 +1,63 @@
+
+body, body *:not(html):not(style):not(br):not(tr):not(code) {
+    font-family: "Raleway", Helvetica, sans-serif;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #f5f8fa;
+    height: 100%;
+    hyphens: auto;
+    line-height: 1.4;
+    margin: 0;
+    -moz-hyphens: auto;
+    -ms-word-break: break-all;
+    width: 100% !important;
+    -webkit-hyphens: auto;
+    -webkit-text-size-adjust: none;
+    word-break: break-all;
+    word-break: break-word;
+}
+
+.panel {
+    background-color: rgb(60, 81, 141);
+    padding: 10px 10px;
+    color: white;
+}
+
+.panel a {
+    color: rgb(252, 115, 73);
+    text-transform: uppercase;
+}
+
+.header {
+    padding: 25px 0;
+    text-align: center;
+}
+
+.header a {
+    color: rgb(252, 115, 73);
+    font-size: 19px;
+    font-weight: bold;
+    text-decoration: none;
+    text-shadow: 0 1px 0 white;
+}
+
+.button {
+    border-radius: 3px;
+    box-shadow: 0 2px 3px rgba(0, 0, 0, 0.16);
+    color: #FFF;
+    display: inline-block;
+    text-decoration: none;
+    -webkit-text-size-adjust: none;
+    background-color: rgb(252, 115, 73);
+    border-top: 10px solid rgb(252, 115, 73);
+    border-right: 18px solid rgb(252, 115, 73);
+    border-bottom: 10px solid rgb(252, 115, 73);
+    border-left: 18px solid rgb(252, 115, 73);
+}
+
+.span {
+    text-align: center;
+    font-size: 22px;
+}

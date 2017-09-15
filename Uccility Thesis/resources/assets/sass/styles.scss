@@ -9,7 +9,9 @@ html {
 body {
   background-color: $orange;
   font-family: $font-family;
-  height: 100vh;
+  background-image: url("/img/home.png");
+  background-size: cover;
+  background-repeat: no-repeat;
 } 
 
 // Navbar CSS
@@ -69,8 +71,8 @@ body {
 
 .panel {
   border: 0px;
-  border-radius: 0px;
-  margin-bottom: 0px;
+  // border-radius: 0px;
+  margin-bottom: 20px;
   // height: 622px;
   background-color: $purple * 1.5;
   .panel-heading {

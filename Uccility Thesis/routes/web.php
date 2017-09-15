@@ -21,8 +21,12 @@ Auth::routes();
 
 Route::get('/activate', 'ActivateAccountController@step1')->name('activate.step1');
 Route::get('/activate/step1', 'ActivateAccountController@step1')->name('activate.step1');
+Route::post('activate/step1', 'ActivateAccountController@step1Store');
 Route::get('/activate/step2', 'ActivateAccountController@step2')->name('activate.step2');
+Route::post('activate/step2', 'ActivateAccountController@step2Store');
 Route::get('/activate/step3', 'ActivateAccountController@step3')->name('activate.step3');
+Route::post('activate/step3', 'ActivateAccountController@step3Store');
+Route::get('/activate/confirmation', 'ActivateAccountController@confirmation')->name('activate.confirmation');
 
 Route::get('/list', 'SampleController@index')->name('list');
 
