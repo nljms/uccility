@@ -1,0 +1,73 @@
+@font-face {
+  font-family: 'icomoon';
+  src:  url(/fonts/vendor/fonts-uc/icomoon.eot?w8kbun/);
+  src:  url(/fonts/vendor/fonts-uc/icomoon.eot?w8kbun#iefix/) format('embedded-opentype'),
+    url(/fonts/vendor/fonts-uc/icomoon.ttf?w8kbun/) format('truetype'),
+    url(/fonts/vendor/fonts-uc/icomoon.woff?w8kbun/) format('woff'),
+    url(/fonts/vendor/fonts-uc/icomoon.svg?w8kbun#icomoon/) format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'icomoon' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-logo-glyph:before {
+  content: "\e90e";
+  color: #d3d3d3;
+}
+.icon-uccility-building:before {
+  content: "\e900";
+}
+.icon-uccility-calendar:before {
+  content: "\e901";
+}
+.icon-uccility-chat:before {
+  content: "\e902";
+}
+.icon-uccility-clock:before {
+  content: "\e903";
+}
+.icon-uccility-download:before {
+  content: "\e904";
+}
+.icon-uccility-file:before {
+  content: "\e905";
+}
+.icon-uccility-folder:before {
+  content: "\e906";
+  color: #000;
+}
+.icon-uccility-graphs:before {
+  content: "\e907";
+}
+.icon-uccility-id:before {
+  content: "\e908";
+}
+.icon-uccility-menu:before {
+  content: "\e909";
+}
+.icon-uccility-message:before {
+  content: "\e90a";
+}
+.icon-uccility-news-announcement:before {
+  content: "\e90b";
+}
+.icon-uccility-professor:before {
+  content: "\e90c";
+}
+.icon-uccility-student:before {
+  content: "\e90d";
+}

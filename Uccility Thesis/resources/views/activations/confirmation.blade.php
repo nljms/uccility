@@ -12,14 +12,14 @@
                         {{ csrf_field() }}
 
                         <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
-                            <div class="col-md-8 col-md-offset-2">
-                                <h3>You are now Activated!</h3>
+                            <div class="col-md-8 col-md-offset-2" style="text-align: center;">
+                                <h3 style="color: #ffffff">You are now Activated!</h3>
                             </div>        
                         </div>
 
                         <div class="form-group">
-                            <div class="col-md-8 col-md-offset-2">
-                                <button type="submit" class="btn btn-primary">
+                            <div class="col-md-8 col-md-offset-2" style="text-align: center;">
+                                <button type="submit" class="btn btn-primary btn-o">
                                     Login
                                 </button>
                             </div>
@@ -65,4 +65,11 @@
         </div>
     </div>
 </div>
+<script>
+    $(document).ready(function(){
+        if($('.guest-body').length){
+            $(".guest-body").addClass('blur');
+        }
+    });
+</script>
 @endsection

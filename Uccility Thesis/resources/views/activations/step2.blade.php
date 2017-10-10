@@ -136,7 +136,7 @@
 
                         <div class="form-group">
                             <div class="col-md-8 col-md-offset-2">
-                                <button type="submit" class="btn btn-primary">
+                                <button type="submit" class="btn btn-primary btn-o">
                                     Proceed
                                 </button>
                             </div>
@@ -182,4 +182,11 @@
         </div>
     </div>
 </div>
+<script>
+    $(document).ready(function(){
+        if($('.guest-body').length){
+            $(".guest-body").addClass('blur');
+        }
+    });
+</script>
 @endsection

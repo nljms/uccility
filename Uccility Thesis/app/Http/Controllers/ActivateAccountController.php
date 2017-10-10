@@ -29,44 +29,45 @@ class ActivateAccountController extends Controller
             'student_number' => 'required|min: 2',
             'last_name' => 'required|min: 2',
             'first_name' => 'required',
-            'middle_name' => 'required',
-            'course' => 'required',
-            'year' => 'required',
-            'section' => 'required',
+            'middle_name' => 'required'
         ]);
-        
-        $server_data = DB::table('enrollment_data')->where([
+
+        $query = [
             ['student_number', '=', $request->student_number],
             ['last_name', 'like', '%'.$request->last_name.'%'],
             ['first_name', 'like', '%'.$request->first_name.'%'],
-            ['middle_name', 'like', '%'.$request->middle_name.'%'],
-            ['course', '=', $request->course],
-            ['year', '=', $request->year],
-            ['section', '=', $request->section]
-        ])->get();
+            ['middle_name', 'like', '%'.$request->middle_name.'%']
+        ];
+
+        $server_data = DB::table('enrollment_data')->where($query)->get();
 
         if(count($server_data) > 0)
         {
-            $request->session()->put([
-                'student_number' => $request->student_number,
-                'last_name' => $request->last_name,
-                'first_name' => $request->first_name,
-                'middle_name' => $request->middle_name,
-                'extension_name' => $request->extension_name,
-                'program' => $request->course,
-                'year' => $request->year,
-                'section' => $request->section,
-                'campus' => $request->campus
-            ]);
-            return redirect('/activate/step2');
+            $isExisting = DB::table('students')->where('student_number', '=', $request->student_number)->get();
+            
+            if(count($isExisting) > 0)
+            {
+                $err = "Sorry this student is already activated his/her account, Please contact the Site Admin or the MIS for more Information.";
+                return redirect()->back()->withInput()->with('err', $err);
+            }
+            else
+            {
+                $request->session()->put([
+                    'student_number' => $request->student_number,
+                    'last_name' => $request->last_name,
+                    'first_name' => $request->first_name,
+                    'middle_name' => $request->middle_name,
+                    'extension_name' => $request->extension_name,
+                ]);
+                return redirect('/activate/step2');
+            }
         }
         else
         {
-            $err = "user not found";
+            $err = "Sorry we couldn't find the student you tried to activate, Please contact the Site Admin or the MIS for more Information.";
             return redirect()->back()->withInput()->with('err', $err);
         }
-        // return $request->all();
-        
+
     }
 
     public function step2()
@@ -79,7 +80,7 @@ class ActivateAccountController extends Controller
         $this->validate($request, [
             'address' => 'required|min: 2',
             'city_address' => 'required|min: 2',
-            'zip_code' => 'required|number',
+            'zip_code' => 'required',
             'mobile_no' => 'required',
             'date_of_birth' => 'required',
             'gender' => 'required',
@@ -121,7 +122,9 @@ class ActivateAccountController extends Controller
             'username' => $request->username,
             'password' => $request->password
         ]);
+
         $session = $request->session();
+
         $user_id = User::create([
             'last_name' => $session->get('last_name'),
             'first_name' => $session->get('first_name'),
@@ -144,22 +147,32 @@ class ActivateAccountController extends Controller
             'user_id' => $user_id,
             'status' => 'Regular'
         ]);
+
+        $enrollment_data = DB::table('enrollment_data')->where('student_number', '=', $session->get('student_number'))->get();
         
         $student = Student::create([
             'user_id' => $request->user_id,
             'student_number' => $session->get('student_number'),
-            'program' => $session->get('program'),
-            'year' => $session->get('year'),
-            'section' => $session->get('section'),
-            'campus' => $session->get('campus'),
+            'program' => $enrollment_data[0]->course,
+            'year' => $enrollment_data[0]->year,
+            'section' => $enrollment_data[0]->section,
+            'campus' => $enrollment_data[0]->location,
             'status' => $request->status
         ]);
 
         $user = User::find($user_id);
-
-        Mail::to($user)->send(new \App\Mail\ActivationComplete($user));
+        $confirmation_str = str_random(50);
+        try {
+            Mail::to($user)->send(new \App\Mail\ActivationComplete($user, $confirmation_code));
+        }
+        catch(Exception $e)
+        {
+            abort(404);
+        }
         return redirect('/activate/confirmation/');
         // return $request->session()->get('student_number');
+        // return $enrollment_data[0]->course;
+        // dd($enrollment_data);
 
     }
 

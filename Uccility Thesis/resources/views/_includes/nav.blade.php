@@ -8,8 +8,8 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="{{url('/')}}">
-                    <span class="icon-uccility"></span>UCCILITY
+                <a class="navbar-brand" href="{{url('/')}}" style="margin-top: 4px;">
+                    <span class="icon-logo-glyph" style="margin-top: -38px; font-size: 54px;"></span>UCCILITY
                 </a>
             </div>
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -21,7 +21,7 @@
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 <li><a href="{{url('/login')}}">Sign In</a></li>
-                <li><a href="{{url('/register ')}}">Activate</a></li>
+                <li><a href="{{url('/activate ')}}">Activate</a></li>
             </ul>
             </div>
         </div>

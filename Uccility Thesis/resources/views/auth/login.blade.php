@@ -1,18 +1,15 @@
 @extends('layouts.user')
 
 @section('content')
-<div class="container-fluid">
+<div class="container-fluid" style="position: relative; overflow: hidden">
     <div class="row">
-        <div class="col-md-9 content-panel" style="padding: 0px;">
-            <img src="{{ asset('img/ucc.jpg') }}" alt="" style="width: 1012px; padding:0px;">
-        </div>
-        <div class="col-md-3 login-panel pull-right" style="position: relative;">
+        <div class="col-md-3 login-panel pull-right" style="position: relative; overflow: hidden">
             <div class="panel panel-default panel-login-holder">
                 <div class="panel-heading">Login</div>
                 <div class="panel-body">
                     <div class="col-md-12 uccility-logo">
                         <!-- <span class="icon-uccility"></span> -->
-                        <img src="{{asset('img/uccility_logo.png')}}" class="img-responsive uccility_login_logo" alt="uccility_logo"/>
+                        <img src="{{asset('img/finalLogo.png')}}" class="img-responsive uccility_login_logo" alt="uccility_logo"/>
                     </div>
                     <form class="form-horizontal" method="POST" action="{{ route('login') }}">
                         {{ csrf_field() }}
@@ -55,7 +52,7 @@
 
                         <div class="form-group">
                             <div class="col-md-12 text-center">
-                                <button type="submit" class="btn btn-primary col-md-8  col-md-offset-2">
+                                <button type="submit" class="btn btn-primary btn-o col-md-8  col-md-offset-2">
                                     Login
                                 </button>
 
@@ -70,4 +67,11 @@
         </div>
     </div>
 </div>
+<script>
+    $(document).ready(function(){
+        if($('.guest-body').length){
+            $(".guest-body").addClass('blur');
+        }
+    });
+</script>
 @endsection

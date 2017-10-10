@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admins;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
+use App\Professor;
 class RegistrarController extends Controller
 {
     /**
@@ -43,6 +44,17 @@ class RegistrarController extends Controller
     public function showProfile()
     {
         return view('admin.registrar.user-profile');
+    }
+
+    public function showGradingSheet()
+    {
+        return view('admin.registrar.grading-sheet');
+    }
+
+    public function showProfessors()
+    {
+        $professors = Professor::all();
+        return view('admin.registrar.professors', compact('professors'));
     }
 
     public function create()

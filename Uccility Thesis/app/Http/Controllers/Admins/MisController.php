@@ -47,6 +47,16 @@ class MisController extends Controller
         return view('admin.mis.news-announcement');
     }
 
+    public function showAr()
+    {
+        return view('admin.mis.ar-config');
+    }
+
+    public function showMapping()
+    {
+        return view('admin.mis.mapping-config');
+    }
+
     /**
      * Show the form for creating a new resource.
      *

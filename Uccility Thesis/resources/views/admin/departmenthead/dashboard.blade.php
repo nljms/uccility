@@ -9,7 +9,7 @@
             <div class="col-md-12 content-item">
                 <h3>Users</h3>
                 <hr>
-                <h1><i class="fa fa-users"></i> 3476</h1>
+                <h1><i class="icon-uccility-id"></i> 3476</h1>
                 <hr>
                 <p>Current Overall Total of Users...</p>
             </div>

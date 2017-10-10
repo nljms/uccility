@@ -12,5 +12,6 @@ const { mix } = require('laravel-mix');
  */
 
 mix.js('resources/assets/js/app.js', 'public/js')
-    .js('node_modules/chart.js/dist/Chart.min.js', 'public/js')
+    .js('node_modules/jquery/dist/jquery.min.js', 'public/js')
+    .js('node_modules/chart.js/Chart.min.js', 'public/js/app.js')
     .sass('resources/assets/sass/app.scss', 'public/css');

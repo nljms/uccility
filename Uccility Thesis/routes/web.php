@@ -51,6 +51,8 @@ Route::group(['prefix' => 'admin', 'middleware' => ['role:super admin|hr|registr
         Route::get('/news-and-announcements', 'Admins\MisController@newsAnnounce')->name('registrar.news-announcements');
         Route::get('/messaging', 'Admins\MisController@messaging')->name('registrar.messaging');
         Route::get('/analytics', 'Admins\MisController@showAnalytics')->name('mis.analytics');
+        Route::get('/augmented-reality', 'Admins\MisController@showAr')->name('mis.ar');
+        Route::get('/2d-mapping', 'Admins\MisController@showMapping')->name('ar.mapping');
         Route::get('/users', 'Admins\MisController@users')->name('mis.users');
         Route::get('/users/students', 'Admins\MisController@showUserType')->name('mis.users.type');
         Route::get('/users/students/profile/1', 'Admins\MisController@showUserTypeProfile')->name('mis.users.type');
@@ -70,11 +72,15 @@ Route::group(['prefix' => 'admin', 'middleware' => ['role:super admin|hr|registr
     // Registrar
     Route::group(['prefix' => 'registrar', 'middleware' => ['role:registrar']], function(){
         Route::get('/', 'Admins\RegistrarController@index')->name('registrar.dashboard');
-        Route::get('/professors', 'Admins\RegistrarController@index')->name('registrar.dashboard');
+        Route::get('/professors/1', function() {
+            return view('admin.registrar.user-profile');
+        });
+        Route::get('/professors', 'Admins\RegistrarController@showProfessors');
         Route::get('/records', 'Admins\RegistrarController@showRecords')->name('registrar.records');
         Route::get('/records/college-of-liberal-arts-and-sciences', 'Admins\RegistrarController@showCourses')->name('registrar.courses');
         Route::get('/records/college-of-liberal-arts-and-sciences/bscs', 'Admins\RegistrarController@showStudents')->name('registrar.students');
         Route::get('/records/college-of-liberal-arts-and-sciences/bscs/profile/1', 'Admins\RegistrarController@showProfile')->name('registrar.profile');
+        Route::get('/records/college-of-liberal-arts-and-sciences/bscs/profile/1/grading-sheet', 'Admins\RegistrarController@showGradingSheet')->name('registrar.grading-sheet');
     });
 
     // Department Head

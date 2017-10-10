@@ -20,7 +20,7 @@
             <div class="col-md-12 content-item">
                 <h3>Professors</h3>
                 <hr>
-                <h1><i class="fa fa-user-o"></i> 3476</h1>
+                <h1><i class="icon-uccility-professor"></i> 3476</h1>
                 <button class="btn btn-warning"><i class="fa fa-exclamation-triangle"></i> Notify Professors</button>
                 <hr>
                 <p>Current Overall Total of Professors...</p>
@@ -28,7 +28,7 @@
         </div>
         <div class="col-md-9 content-wrapper">
             <div class="col-md-12 content-item">
-            <h3>Grading Sheets <i class="fa fa-file"></i> <i class="fa fa-ellipsis-v pull-right"></i> <span class="date-identifier"><p>S.Y. 2017 - 2018 2nd Semester</p></span></h3>
+            <h3>Grading Sheets <i class="icon-uccility-folder"></i> <i class="fa fa-ellipsis-v pull-right"></i> <span class="date-identifier"><p>S.Y. 2017 - 2018 2nd Semester</p></span></h3>
                 <div class="col-md-6">
                     <h3>Received <span class="badge bg-orange">New 32</span></h3><hr>
                     <h1><i class="fa fa-upload"></i> 65%</h1><hr>
@@ -36,7 +36,7 @@
                 </div>
                 <div class="col-md-6">
                     <h3>Unreceived</h3><hr>
-                    <h1><i class="fa fa-download"></i> 35%</h1><hr>
+                    <h1><i class="icon-uccility-download"></i> 35%</h1><hr>
                     <p>1871 Not Submitted...</p>
                 </div>
                 <div class="col-md-12">

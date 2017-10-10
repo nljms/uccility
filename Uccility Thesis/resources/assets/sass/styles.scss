@@ -7,12 +7,33 @@ html {
 }
 
 body {
-  background-color: $orange;
+  // background-color: $orange;
   font-family: $font-family;
-  background-image: url("/img/home.png");
-  background-size: cover;
-  background-repeat: no-repeat;
-} 
+}
+
+.guest-body {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  z-index: -10;
+  &.blur {
+    filter: blur(10px);
+  }
+}
+
+
+.guest-body-img {
+  height: 100%;
+  width: 100%;
+}
+
+
+.welcome {
+  h1 {
+    color: $orange;
+    font-size: 56px;
+  }
+}
 
 // Navbar CSS
 .navbar-holder {
@@ -51,7 +72,6 @@ body {
   }
 }
 
-
 .navbar-brand {
   padding-top: 14px;
   span {
@@ -67,6 +87,14 @@ body {
 //Login CSS
 .login-panel {
   padding: 0px;
+}
+
+.password-reset-panel {
+  margin-top: 120px;
+}
+
+.password-email-panel {
+  margin-top: 160px;
 }
 
 .panel {
@@ -124,6 +152,19 @@ body {
     &:hover {
       color: $orange;
     }
+  }
+}
+
+.activation-btn {
+  padding-left: 35px;
+}
+
+.btn-o {
+  background-color: $orange;
+  border: 1px solid $orange;
+  &:hover {
+    background-color: $orange * 1.3;
+    border: 1px solid $orange;
   }
 }
 

@@ -9,7 +9,7 @@
             <h1>Loquine, Edilbert Pantajo <i class="fa fa-ellipsis-v pull-right"></i></h1><hr>
             <div class="col-md-3 personal-info">
                 <div class="profile-pic">
-                    <img src="{{asset('img/img_avatar3.png')}}" alt="profile_picture" class="img-thumbnail img-responsive user-profile-pic">
+                    <img src="{{asset('img/avatar.png')}}" alt="profile_picture" class="img-thumbnail img-responsive user-profile-pic">
                 </div>
                 <div class="profile-info">
                     <p class="info-title id">Student</p>

@@ -8,8 +8,8 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="{{url('/')}}">
-                    <span class="icon-uccility"></span>UCCILITY
+                <a class="navbar-brand" href="{{url('/')}}" style="margin-top: 6px;">
+                    <span class="icon-logo-glyph" style="margin-top: -38px; font-size: 54px;"></span>UCCILITY
                 </a>
             </div>
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">

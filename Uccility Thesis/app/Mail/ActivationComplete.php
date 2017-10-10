@@ -14,15 +14,17 @@ class ActivationComplete extends Mailable
     use Queueable, SerializesModels;
 
     public $user;
+    public $confirmation_code;
 
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct(User $user)
+    public function __construct(User $user, $confirmation_code)
     {
         $this->user = $user;
+        $this->confirmation_code = $confirmation_code;
     }
  
     /**

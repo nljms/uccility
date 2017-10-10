@@ -10,14 +10,14 @@
                 @include('_includes.errors')
                 @if(session()->has('err'))
                 <div class="col-md-12 alert alert-danger">
-                    <p>We can't find a user with that information, or you may contact the MIS for more info.</p>
+                    <p>{{ session()->get('err') }}</p>
                 </div>
                 @endif
                     <form class="form-horizontal" method="POST" action="/activate/step1">
                         {{ csrf_field() }}
                         <div class="form-group{{ $errors->has('student_number') ? ' has-error' : '' }}">
                             <div class="col-md-8 col-md-offset-2">
-                                <input id="student_number" type="text" class="form-control custom-fields" name="student_number" value="{{ old('student_number') }}" placeholder="Student number" required autofocus>
+                                <input id="student-number" type="text" class="form-control custom-fields" name="student_number" value="{{ old('student_number') }}" placeholder="Student number" required autofocus>
                                 @if ($errors->has('student_number'))
                                     <span class="help-block">
                                         <strong>{{ $errors->first('student_number') }}</strong>
@@ -41,7 +41,7 @@
 
                         <div class="form-group{{ $errors->has('middle_name') ? ' has-error' : '' }}">
                             <div class="col-md-8 col-md-offset-2">
-                                <input id="middle_name" type="text" class="form-control custom-fields" name="middle_name" value="{{ old('first_name') }}" placeholder="Middle name" required>
+                                <input id="middle_name" type="text" class="form-control custom-fields" name="middle_name" value="{{ old('middle_name') }}" placeholder="Middle name" required>
                                 @if ($errors->has('middle_name'))
                                     <span class="help-block">
                                         <strong>{{ $errors->first('middle_name') }}</strong>
@@ -79,83 +79,10 @@
                             </div>
                             <label for="extension-name" class="col-md-12 control-label">Extension name (if any)</label>
                         </div>
-
-                        <div class="form-group{{ $errors->has('course') ? ' has-error' : '' }}">
-                            <div class="col-md-8 col-md-offset-2">
-                                <select id="course" class="form-control custom-fields" name="course">
-                                    <option value=""></option>
-                                    <option value="BSCS">BSCS</option>
-                                    <option value="BSIT">BSIT</option>
-                                    <option value="BSIT">BSIS</option>
-                                    <option value="BSIT">BSEMC</option>
-                                </select>   
-                                @if ($errors->has('course'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('course') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                            <label for="course" class="col-md-12 control-label">Course</label>
-                        </div>
-
-                        <div class="form-group{{ $errors->has('year') ? ' has-error' : '' }}">
-                            <div class="col-md-8 col-md-offset-2">
-                                <select id="year" class="form-control custom-fields" name="year">
-                                    <option value=""></option>
-                                    <option value="4th">4th</option>
-                                    <option value="3rd">3rd</option>
-                                    <option value="2nd">2nd</option>
-                                    <option value="1st">1st</option>
-                                </select>   
-                                @if ($errors->has('year'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('year') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                            <label for="year" class="col-md-12 control-label">Year</label>
-                        </div>
-
-                        <div class="form-group{{ $errors->has('section') ? ' has-error' : '' }}">
-                            <div class="col-md-8 col-md-offset-2">
-                                <select id="section" class="form-control custom-fields" name="section">
-                                    <option value=""></option>
-                                    <option value="A">A</option>
-                                    <option value="B">B</option>
-                                    <option value="C">C</option>
-                                    <option value="D">D</option>
-                                    <option value="D">E</option>
-                                    <option value="D">F</option>
-                                </select>   
-                                @if ($errors->has('section'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('section') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                            <label for="section" class="col-md-12 control-label">Section</label>
-                        </div>
-
-                        <div class="form-group{{ $errors->has('location') ? ' has-error' : '' }}">
-                            <div class="col-md-8 col-md-offset-2">
-                                <select id="location" class="form-control custom-fields" name="campus">
-                                    <option value=""></option>
-                                    <option value="A">Camarin</option>
-                                    <option value="B">Congress</option>
-                                    <option value="C">Main</option>
-                                </select>   
-                                @if ($errors->has('location'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('location') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                            <label for="section" class="col-md-12 control-label">Campus</label>
-                        </div>
-
+                        
                         <div class="form-group">
-                            <div class="col-md-8 col-md-offset-2">
-                                <button type="submit" class="btn btn-primary">
+                            <div class="col-md-2 col-md-offset-4 activation-btn">
+                                <button type="submit" class="btn btn-primary btn-o">
                                     Proceed
                                 </button>
                             </div>
@@ -201,4 +128,11 @@
         </div>
     </div>
 </div>
+<script>
+    $(document).ready(function(){
+        if($('.guest-body').length){
+            $(".guest-body").addClass('blur');
+        }
+    });
+</script>
 @endsection

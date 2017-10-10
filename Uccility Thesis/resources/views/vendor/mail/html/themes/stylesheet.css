@@ -57,7 +57,6 @@ body {
     border-left: 18px solid rgb(252, 115, 73);
 }
 
-.span {
-    text-align: center;
-    font-size: 22px;
+.email {
+    color: rgb(252, 115, 73);
 }

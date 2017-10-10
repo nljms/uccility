@@ -1,6 +1,7 @@
 @extends('layouts.admin')
 
-@section('title', 'Admministrator')
+@section('title', $professor->user->last_name.', '.$professor->user->first_name.' '.$professor->user->middle_name)
+
 @section('content')
 <div class="col-md-12 contents">
     <div class="col-md-12 content-row">
@@ -14,29 +15,21 @@
                     <h2 class="header" >Personal Details</h2>
                     <div class="row">
                         <div class="col-md-4"><p class="info-title">Full Name</p>
-                        <p>{{ $professor->user->last_name }}, {{ $professor->user->first_name }} {{ $professor->user->middle_name }}</p>
+                        <p>{{ $professor->user->last_name }}, {{ $professor->user->first_name }} {{ $professor->user->middle_name }} {{ $professor->user->extension_name }}</p>
                     </div>
                     <div class="col-md-5"> 
                         <p class="info-title">Employment Status</p>
                         <p>{{ $professor->employment_status }}</p>
                     </div>
-                    <div class="col-md-2"> 
-                        <p class="info-title">Total Units</p>
-                        <p>45 units</p>       
-                   </div>
                 </div>
             <div class="row">
                 <div class="col-md-4"> 
                     <p class="info-title">Department</p>
                     <p>{{ $professor->department->description }}</p>
                 </div>
-                <div class="col-md-5">
-                    <p class="info-title">Degree</p>
-                    <p>Bachelor of Science in Computer Science</p>
-                </div>
                 <div class="col-md-2"> 
                     <p class="info-title">Campus</p>
-                    <p>Congressional</p>       
+                    <p>{{ $professor->campus }}</p>       
                 </div>
             </div><hr>  
                 <div class="row">
@@ -52,17 +45,27 @@
                 <div class="row">
                     <div class="col-md-4"> 
                         <p class="info-title">Gender</p>
-                        <p>Male</p>
+                        <p>{{ $professor->user->gender }}</p>
                     </div>
                     <div class="col-md-5">
                          <p class="info-title">Email</p>
-                        <p>e.loquine00@gmail.com</p>
+                        <p>{{ $professor->user->email }}</p>
                     </div>
                     <div class="col-md-2"> 
                         <p class="info-title">Phone</p>
-                        <p>+639434921921</p>
-                  </div>
-                </div>                 
+                        <p>{{ $professor->user->mobile_no }}</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4"> 
+                        <p class="info-title">Date of Birth</p>
+                        <p>{{ $professor->user->date_of_birth }}</p>
+                    </div>
+                    <div class="col-md-4">
+                         <p class="info-title">Place of Birth</p>
+                        <p>{{ $professor->user->place_of_birth }}</p>
+                    </div>
+                </div>                
             </div>
         </div>       
     </div>

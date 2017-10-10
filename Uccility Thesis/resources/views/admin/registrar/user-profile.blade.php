@@ -1,19 +1,18 @@
 @extends('layouts.admin')
 
-@section('title', 'Administration')
+@section('title', 'Loquine, Edilbert Pantajo')
 
 @section('content')
 <div class="col-md-12 contents">
     <div class="col-md-12 content-row">
         <div class="col-md-12 content-item">
-            <h1>Loquine, Edilbert Pantajo <i class="fa fa-ellipsis-v pull-right"></i></h1><hr>
+            <h1>Profile <i class="fa fa-ellipsis-v pull-right"></i></h1><hr>
             <div class="col-md-3 personal-info">
                 <div class="profile-pic">
                     <img src="{{asset('img/img_avatar3.png')}}" alt="profile_picture" class="img-thumbnail img-responsive user-profile-pic">
                 </div>
                 <div class="profile-info">
                     <p class="info-title id">Student</p>
-                    <p class="info-title id">User ID: 1</p>
                     <p class="info-title id">Student #: 20140593</p>
                     <hr>
                     <p class="info-title">Program</p>

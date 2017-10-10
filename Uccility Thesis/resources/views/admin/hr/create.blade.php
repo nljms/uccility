@@ -1,6 +1,6 @@
 @extends('layouts.admin')
 
-@section('title', 'HR Admin')
+@section('title', 'Add new Professor')
     
 @section('content')
 <div class="col-md-12 contents">

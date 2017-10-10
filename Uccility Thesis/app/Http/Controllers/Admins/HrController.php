@@ -75,7 +75,7 @@ class HrController extends Controller
 
     public function showEvaluations()
     {
-        
+        return view('admin.hr.evaluations');
     }
 
     /**

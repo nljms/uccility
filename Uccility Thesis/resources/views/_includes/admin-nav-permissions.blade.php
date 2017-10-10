@@ -6,7 +6,7 @@
                 <a href="/admin/">
                     <div class="side-menu-item col-md-12">
                         <div class="col-md-2">
-                            <i class="fa fa-tachometer"></i>
+                            <i class="icon-uccility-graphs" style="font-size: 18px;"></i>
                         </div>
                         <div class="col-md-8">
                             Dashboard
@@ -22,7 +22,7 @@
                 <a href="/admin/mis/users">
                     <div class="side-menu-item col-md-12">
                         <div class="col-md-2">
-                            <i class="fa fa-users"></i>
+                            <i class="icon-uccility-professor" style="font-size: 20px;"></i>
                         </div>
                         <div class="col-md-8">
                             Users and Roles
@@ -54,7 +54,7 @@
                 <a href="/admin/users">
                     <div class="side-menu-item col-md-12">
                         <div class="col-md-2">
-                            <i class="fa fa-users"></i>
+                            <i class="icon-uccility-professor" style="font-size: 22px;"></i>
                         </div>
                         <div class="col-md-8">
                             Professors
@@ -69,7 +69,7 @@
                 <a href="/admin/hr/evaluations">
                     <div class="side-menu-item col-md-12">
                         <div class="col-md-2">
-                            <i class="fa fa-file"></i>
+                            <i class="icon-uccility-file" style="font-size: 20px;"></i>
                         </div>
                         <div class="col-md-8">
                             Evaluations
@@ -86,7 +86,7 @@
                 <a href="#">
                     <div class="side-menu-item col-md-12">
                         <div class="col-md-2">
-                            <i class="fa fa-users"></i>
+                            <i class="icon-uccility-professor" style="font-size: 22px;"></i>
                         </div>
                         <div class="col-md-8">
                             Professors
@@ -100,7 +100,7 @@
                 <a href="/admin/registrar/records">
                     <div class="side-menu-item col-md-12">
                         <div class="col-md-2">
-                            <i class="fa fa-file"></i>
+                            <i class="icon-uccility-file" style="font-size: 20px;"></i>
                         </div>
                         <div class="col-md-8">
                             Records
@@ -157,7 +157,7 @@
                 <a href="/admin/mis/news-and-announcements">
                     <div class="side-menu-item col-md-12">
                         <div class="col-md-2">
-                            <i class="fa fa-calendar"></i>
+                            <i class="icon-uccility-news-announcement" style="font-size: 22px;"></i>
                         </div>
                         <div class="col-md-8">
                             News and Announcements
@@ -188,7 +188,7 @@
             <div class="row">
                 <div class="side-menu-item col-md-12">
                     <div class="col-md-2">
-                        <i class="fa fa-map"></i>
+                        <i class="icon-uccility-building" style="font-size: 22px;"></i>
                     </div>
                     <div class="col-md-8">
                         <a href="#">Maps</a>
