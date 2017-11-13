@@ -4,26 +4,6 @@ $(document).ready(function() {
     var purple = 'rgba(252, 115, 73, 1)';
     var darkblue = 'rgba(40, 54, 94, 1)';
 
-    
-    // user avatar image upload preview
-
-    $('#browse').click(function() {
-        var file = $(this).parent().parent().parent().find('.file');
-            file.trigger('click');
-    });
-
-    $('.file').change(function() {
-        $(this).parent().find('.form-control').val($(this).val().replace(/C:\\fakepath\\/i, ''));
-        var file = this.files[0];
-            var imagefile = file.type;
-            var reader = new FileReader();
-            reader.onload = imageIsLoaded;
-            reader.readAsDataURL(this.files[0]);
-    });
-
-    function imageIsLoaded(e) {
-        $('#img-preview').attr('src', e.target.result);
-    }
 
     var ctx = $('#line-chart');
     var lineChart = new Chart(ctx, {
@@ -97,6 +77,28 @@ $(document).ready(function() {
             ]
         }
     });
+    
+    // user avatar image upload preview
+
+    $('#browse').click(function() {
+        var file = $(this).parent().parent().parent().find('.file');
+            file.trigger('click');
+    });
+
+    $('.file').change(function() {
+        $(this).parent().find('.form-control').val($(this).val().replace(/C:\\fakepath\\/i, ''));
+        var file = this.files[0];
+            var imagefile = file.type;
+            var reader = new FileReader();
+            reader.onload = imageIsLoaded;
+            reader.readAsDataURL(this.files[0]);
+    });
+
+    function imageIsLoaded(e) {
+        $('#img-preview').attr('src', e.target.result);
+    }
+
+    
 
 
 });

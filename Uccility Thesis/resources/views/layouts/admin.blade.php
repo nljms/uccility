@@ -11,7 +11,8 @@
 	<link rel="icon" href="{{ asset('img/favicon.ico') }}">
     <!-- <link rel="stylesheet" href="{{ asset('css/style-icon.css') }}"> -->
 	<link rel="stylesheet" href="{{ asset('css/style-uc.css') }}">
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.0/Chart.bundle.js"></script>
+	<script src="{{ asset('js/jquery-3.1.1.min.js') }}"></script>
+	<script src="{{ asset('js/Chart.min.js') }}"></script>
 </head>
 <body>
 <div class="container-fluid">
@@ -34,7 +35,6 @@
 		</div>
 	</div>
 </body>
-<script src="{{ asset('js/app.js') }}"></script>
-<!-- <script src="{{ asset('js/Chart.min.js') }}"></script> -->
+<!-- <script src="{{ asset('js/app.js') }}"></script> -->
 <script src="{{ asset('js/script.js') }}"></script>	
 </html>

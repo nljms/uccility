@@ -1,10 +1,10 @@
-	@component('mail::message')
+@component('mail::message')
 
 <h3> Your Account has been Activated! </h3>
 
 @component('mail::panel')
-
-<span style="font-size: 18px; color: rgb(252,115,73)">http://uccility.dev:8000/{{ $confirmation_code }}</span>
+<p style="font-size: 18px; color: #ffffff">Thank you {{ $data[0]->first_name }} {{ $data[0]->last_name }}, you may click the link below to complete your Activation.</p>
+<span style="font-size: 18px; color: rgb(252,115,73)">http://uccility.dev:8000/activate/confirmation/{{ $confirmation_code }}</span>
 
 Contact us here: <br>
 uccilityapp@gmail.com <br>
@@ -13,7 +13,6 @@ uccilityapp@gmail.com <br>
 @endcomponent
 
 Start using the App by Downloading:
-
 
 @component('mail::button', ['url' => 'https://github.com'])
 Download the App!

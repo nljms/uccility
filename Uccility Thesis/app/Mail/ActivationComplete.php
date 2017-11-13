@@ -13,7 +13,7 @@ class ActivationComplete extends Mailable
 {
     use Queueable, SerializesModels;
 
-    public $user;
+    public $data;
     public $confirmation_code;
 
     /**
@@ -21,9 +21,9 @@ class ActivationComplete extends Mailable
      *
      * @return void
      */
-    public function __construct(User $user, $confirmation_code)
+    public function __construct($data, $confirmation_code)
     {
-        $this->user = $user;
+        $this->data = $data;
         $this->confirmation_code = $confirmation_code;
     }
  

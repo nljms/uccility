@@ -1,5 +1,7 @@
 <?php
 
+use App\User;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -17,16 +19,23 @@ Route::get('/', function () {
     return view('guest.index');
 });
 
+// Route::get('/users', function(){
+//     return User::all();
+// });
+
 Auth::routes();
 
-Route::get('/activate', 'ActivateAccountController@step1')->name('activate.step1');
-Route::get('/activate/step1', 'ActivateAccountController@step1')->name('activate.step1');
-Route::post('activate/step1', 'ActivateAccountController@step1Store');
-Route::get('/activate/step2', 'ActivateAccountController@step2')->name('activate.step2');
-Route::post('activate/step2', 'ActivateAccountController@step2Store');
-Route::get('/activate/step3', 'ActivateAccountController@step3')->name('activate.step3');
-Route::post('activate/step3', 'ActivateAccountController@step3Store');
-Route::get('/activate/confirmation', 'ActivateAccountController@confirmation')->name('activate.confirmation');
+Route::group(['prefix' => 'activate'], function(){
+    Route::get('/', 'ActivateAccountController@step1')->name('activate.step1');
+    Route::get('/step1', 'ActivateAccountController@step1')->name('activate.step1');
+    Route::post('/step1', 'ActivateAccountController@step1Store');
+    Route::get('/step2', 'ActivateAccountController@step2')->name('activate.step2');
+    Route::post('/step2', 'ActivateAccountController@step2Store');
+    Route::get('/step3', 'ActivateAccountController@step3')->name('activate.step3');
+    Route::post('/step3', 'ActivateAccountController@step3Store');
+    // Route::get('activate/step3/{token}', 'ActivateAccountController@step3Token');
+    Route::get('/confirmation/{token}', 'ActivateAccountController@confirmation')->name('activate.confirmation');
+});
 
 Route::get('/list', 'SampleController@index')->name('list');
 
@@ -35,12 +44,16 @@ Route::get('/professor', function(){
     return view('professor.dashboard');
 });
 
+Route::get('/student', function(){
+    return view('professor.dashboard');
+});
+
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/home/profile', 'HomeController@profile')->name('home.profile');
 Route::get('/home/logout', 'Auth\LoginController@userLogout')->name('user.logout');
 
 // Administration Page, Super Admin - MIS, HR, Registrar, Department Head, Coordinator and Student Assistant
-Route::group(['prefix' => 'admin', 'middleware' => ['role:super admin|hr|registrar|department head|coordinator|student assistant']], function() {
+Route::group(['prefix' => 'admin', 'middleware' => ['role:super admin|hr|registrar|department head|coordinator|assistant coordinator|student assistant']], function() {
 
     // Redirect Admins to their respective pages
     Route::get('/', 'Admins\AdminController@index')->name('admin.index');
@@ -49,6 +62,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['role:super admin|hr|registr
     Route::group(['prefix' => 'mis', 'middleware' => ['role:super admin']], function(){
         Route::get('/', 'Admins\MisController@index')->name('dashboard');
         Route::get('/news-and-announcements', 'Admins\MisController@newsAnnounce')->name('registrar.news-announcements');
+        Route::post('/news-and-announcements', 'Admins\MisController@postAnnouncement');
         Route::get('/messaging', 'Admins\MisController@messaging')->name('registrar.messaging');
         Route::get('/analytics', 'Admins\MisController@showAnalytics')->name('mis.analytics');
         Route::get('/augmented-reality', 'Admins\MisController@showAr')->name('mis.ar');
@@ -91,12 +105,17 @@ Route::group(['prefix' => 'admin', 'middleware' => ['role:super admin|hr|registr
         Route::get('/coordinators', 'Admins\DepartmentHeadController@showCoordinators')->name('deparmenthead.coordinators');
         Route::get('/coordinators/profile', 'Admins\DepartmentHeadController@showCoordinators')->name('deparmenthead.coordinators');
         Route::get('/student-assistants', 'Admins\DepartmentHeadController@showStudentAssistant')->name('deparmenthead.student-assistant');
-
     }); 
 
     // Coordinator
     Route::group(['prefix' => 'coordinator', 'middleware' => ['role:coordinator']], function(){
         Route::get('/', 'Admins\CoordinatorController@index')->name('coordinator.dashboard');
+
+    });
+
+    // Assistant Coordinator
+    Route::group(['prefix' => 'assistant-coordinator', 'middleware' => ['role:assistant coordinator']], function(){
+        Route::get('/', 'Admins\AssistantCoordinatorController@index')->name('coordinator.dashboard');
 
     });
 

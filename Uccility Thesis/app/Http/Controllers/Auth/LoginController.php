@@ -82,7 +82,7 @@ class LoginController extends Controller
         }
         else if($user->hasRole('student'))
         {
-
+            return redirect('/student');
         }
     
         // return redirect('/home');

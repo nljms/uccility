@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Mail;
 use Session;
 use App\User;
 use App\Student;
+use App\Role;
 
 class ActivateAccountController extends Controller
 {
@@ -27,16 +28,11 @@ class ActivateAccountController extends Controller
     {
         $this->validate($request, [
             'student_number' => 'required|min: 2',
-            'last_name' => 'required|min: 2',
-            'first_name' => 'required',
-            'middle_name' => 'required'
+            'email' => 'required|email',
         ]);
 
         $query = [
-            ['student_number', '=', $request->student_number],
-            ['last_name', 'like', '%'.$request->last_name.'%'],
-            ['first_name', 'like', '%'.$request->first_name.'%'],
-            ['middle_name', 'like', '%'.$request->middle_name.'%']
+            ['student_number', '=', $request->student_number]
         ];
 
         $server_data = DB::table('enrollment_data')->where($query)->get();
@@ -54,10 +50,7 @@ class ActivateAccountController extends Controller
             {
                 $request->session()->put([
                     'student_number' => $request->student_number,
-                    'last_name' => $request->last_name,
-                    'first_name' => $request->first_name,
-                    'middle_name' => $request->middle_name,
-                    'extension_name' => $request->extension_name,
+                    'email' => $request->email,
                 ]);
                 return redirect('/activate/step2');
             }
@@ -67,12 +60,19 @@ class ActivateAccountController extends Controller
             $err = "Sorry we couldn't find the student you tried to activate, Please contact the Site Admin or the MIS for more Information.";
             return redirect()->back()->withInput()->with('err', $err);
         }
-
+        // return bcrypt(session()->getId());
     }
 
     public function step2()
     {
-        return view('activations.step2');
+        if(session()->get('student_number') && session()->get('email'))
+        {
+            return view('activations.step2');
+        }
+        else
+        {
+            return redirect()->back();
+        }
     }
     
     public function step2Store(Request $request)
@@ -83,12 +83,13 @@ class ActivateAccountController extends Controller
             'zip_code' => 'required',
             'mobile_no' => 'required',
             'date_of_birth' => 'required',
+            'place_of_birth' => 'required',
             'gender' => 'required',
             'guardian' => 'required',
             'contact_no' => 'required'
         ]);
 
-        $request->session()->put([
+        session()->put([
             'address' => $request->address,
             'city_address' => $request->city_address,
             'zip_code' => $request->zip_code,
@@ -96,89 +97,116 @@ class ActivateAccountController extends Controller
             'date_of_birth' => $request->date_of_birth,
             'place_of_birth' => $request->place_of_birth,
             'gender' => $request->gender,
-            'civil_status' => $request->civil_status,
             'guardian' => $request->guardian,
             'contact_no' => $request->contact_no,
         ]);
-        // return $request->session()->all();
+
         return redirect('/activate/step3');
     }
 
     public function step3()
     {
-        return view('activations.step3');
+        if(session()->get('student_number') && session()->get('email'))
+        {
+            return view('activations.step3');
+        }
+        else
+        {
+            return redirect()->back();
+        }
     }
 
     public function step3Store(Request $request)
     {
         $this->validate($request, [
-            'email' => 'email|required',
             'username' => 'required|min: 6',
             'password' => 'required|min: 6|confirmed'
         ]);
         
-        $request->session()->put([
-            'email' => $request->email,
+        session()->put([
             'username' => $request->username,
             'password' => $request->password
         ]);
 
-        $session = $request->session();
-
-        $user_id = User::create([
-            'last_name' => $session->get('last_name'),
-            'first_name' => $session->get('first_name'),
-            'middle_name' => $session->get('middle_name'),
-            'extension_name' => $session->get('extension_name'),
-            'gender' => $session->get('gender'),
-            'civil_status' => $session->get('civil_status'),
-            'date_of_birth' => $session->get('date_of_birth'),
-            'place_of_birth' => $session->get('place_of_birth'),
-            'email' => $session->get('email'),
-            'mobile_no' => $session->get('mobile_no'),
-            'current_address' => $session->get('address'),
-            'permanent_address' => $session->get('address'),
-            'photo' => $session->get('photo'),
-            'username' => $session->get('username'),
-            'password' => $session->get('password')
-        ])->id;
-
-        $request->request->add([
-            'user_id' => $user_id,
-            'status' => 'Regular'
-        ]);
-
-        $enrollment_data = DB::table('enrollment_data')->where('student_number', '=', $session->get('student_number'))->get();
+        $data = DB::table('enrollment_data')->where('student_number', '=', session()->get('student_number'))->get();
         
-        $student = Student::create([
-            'user_id' => $request->user_id,
-            'student_number' => $session->get('student_number'),
-            'program' => $enrollment_data[0]->course,
-            'year' => $enrollment_data[0]->year,
-            'section' => $enrollment_data[0]->section,
-            'campus' => $enrollment_data[0]->location,
-            'status' => $request->status
-        ]);
+        $confirmation_code = str_random(50);
 
-        $user = User::find($user_id);
-        $confirmation_str = str_random(50);
+        DB::table('activations')->insert(['session_id' => session()->getId(), 'email' => session()->get('email'), 'token' => $confirmation_code]);
+
         try {
-            Mail::to($user)->send(new \App\Mail\ActivationComplete($user, $confirmation_code));
+            Mail::to(session()->get('email'))->send(new \App\Mail\ActivationComplete($data, $confirmation_code));
         }
         catch(Exception $e)
         {
-            abort(404);
+            return $e;
         }
-        return redirect('/activate/confirmation/');
-        // return $request->session()->get('student_number');
-        // return $enrollment_data[0]->course;
-        // dd($enrollment_data);
 
+        $request->session()->flash('status', 'completed');
+
+        return redirect('/activate/step3/');
     }
 
-    public function confirmation()
+    public function step3Token($token)
     {
-        return view('activations.confirmation');
+        return redirect('/activate/step3/{{token}}');
+    }
+
+    public function confirmation($token)
+    {
+        if(session()->get('student_number') && session()->get('email'))
+        {
+            $data = DB::table('activations')->where([
+                ['email', '=', session()->get('email')],
+                ['token', '=', $token]
+            ]);
+
+            if(count($data) > 0)
+            {
+                $enrollment_data = DB::table('enrollment_data')->where('student_number', '=', session()->get('student_number'))->get();
+
+                $user_id = User::create([
+                    'last_name' => $enrollment_data[0]->last_name,
+                    'first_name' => $enrollment_data[0]->first_name,
+                    'middle_name' => $enrollment_data[0]->middle_name,
+                    'gender' => session()->get('gender'),
+                    'date_of_birth' => session()->get('date_of_birth'),
+                    'place_of_birth' => session()->get('place_of_birth'),
+                    'email' => session()->get('email'),
+                    'mobile_no' => session()->get('mobile_no'),
+                    'current_address' => session()->get('address'),
+                    'permanent_address' => session()->get('city_address'),
+                    'username' => session()->get('username'),
+                    'password' => session()->get('password')
+                ])->id;
+
+                $student = Student::create([
+                    'user_id' => $user_id,
+                    'student_number' => session()->get('student_number'),
+                    'program' => $enrollment_data[0]->course,
+                    'year' => $enrollment_data[0]->year,
+                    'section' => $enrollment_data[0]->section,
+                    'campus' => $enrollment_data[0]->location,
+                    'status' => 'Regular'
+                ]);
+
+                $role = Role::find(5);
+                $user = User::find($user_id);
+                $user->attachRole($role);
+                $message = 'Congratulations, You are now Activated!';
+                session()->flush();
+            }
+            else
+            {
+                $message = 'Oops Something went wrong :( Please try again';
+            }
+            return view('activations.confirmation', compact('message'));
+            // dd(session());
+        }
+        else
+        {
+            return redirect()->back();
+        }
     }
 
     public function isCompleted($user)

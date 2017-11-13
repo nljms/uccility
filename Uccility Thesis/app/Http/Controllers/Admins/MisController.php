@@ -4,6 +4,10 @@ namespace App\Http\Controllers\Admins;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
+
+use App\News;
 
 class MisController extends Controller
 {
@@ -56,6 +60,20 @@ class MisController extends Controller
     {
         return view('admin.mis.mapping-config');
     }
+
+    public function postAnnouncement(Request $request)
+    {
+        $user = Auth::user();
+        $news = DB::table('news')->insert([
+            ['header' => $request->news_header],
+            ['description' => $request->news_description],
+            ['creator' => $user->first_name.' '.$user->last_name],
+            ['position' => $user->roles[0]->name]
+        ]);
+        // return $user;
+        return $news;
+    }
+
 
     /**
      * Show the form for creating a new resource.

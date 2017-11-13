@@ -43,16 +43,17 @@
                         <div class="form-group">
                             <div class="col-md-12 text-center">
                                 <div class="checkbox remember">
-                                    <label>
+                                    <label style="color: black;">
                                         <input type="checkbox" name="remember" {{ old('remember') ? 'checked' : '' }}> Remember Me
                                     </label>
                                 </div>
                             </div>
                         </div>
 
-                        <div class="form-group">
-                            <div class="col-md-12 text-center">
-                                <button type="submit" class="btn btn-primary btn-o col-md-8  col-md-offset-2">
+                        <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
+                        
+                            <div class="col-md-10 col-md-offset-1">
+                                <button type="submit" class="btn btn-primary btn-o">
                                     Login
                                 </button>
 

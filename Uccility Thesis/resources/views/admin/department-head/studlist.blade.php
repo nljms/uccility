@@ -43,6 +43,20 @@
         </div>
     </div>
 </div>
+</body>
+<script src="{{ asset('js/jquery-3.1.1.min.js') }}"></script>
+<script src="{{ asset('js/app.js') }}"></script>
+<script src="{{ asset('js/tether.min.js') }}"></script>
+<script src="{{ asset('js/bootstrap.min.js') }}"></script>
+<script src="{{ asset('js/mdb.js') }}"></script>
+<script src="{{ asset('js/mdb.js') }}"></script>
+<script src="{{ asset('js/Chart.min.js') }}"></script>
+<script src="{{ asset('js/script.js') }}"></script>
+<script type="text/javascript">
+  $('.collapse').collapse();
+
+</script>
+</html>
     @stop
 
 

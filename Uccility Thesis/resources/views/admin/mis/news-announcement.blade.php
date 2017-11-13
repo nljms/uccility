@@ -12,10 +12,14 @@
                     <div class="col-md-2" style="text-align: center;">
                         <img src="{{asset('img/img_avatar3.png')}}" alt="profile_picture" class="img-thumbnail img-responsive img-circle" style="height:58px;">
                     </div>
-                    <div class="col-md-10">
-                        <textarea rows="3" cols="1" class="form-control" style="color: black; font-size: 22px;"></textarea><br>
-                        <button class="btn btn-danger">Post</button> &nbsp;<span class="news-logo">Files <i class="fa fa-file"></i> Images <i class="fa fa-image"></i></span><i class="fa fa-caret-down pull-right"></i>
-                    </div>
+                    <form method="POST" action="/admin/mis/news-and-announcements">
+                        {{ csrf_field() }}
+                        <div class="col-md-10">
+                            <input type="text" name="news_header" class="form-control" style="color: black; font-size: 22px;" placeholder="Title" /><br>
+                            <textarea name="news_description" rows="3" cols="1" class="form-control" style="color: black; font-size: 22px;" placeholder="Description"></textarea><br>
+                            <button class="btn btn-danger" type="submit">Post</button> &nbsp;<span class="news-logo">Files <i class="fa fa-file"></i> Images <i class="fa fa-image"></i></span><i class="fa fa-caret-down pull-right"></i>
+                        </div>
+                    </form>
                 </div>
                 <div class="col-md-12">
                     <hr>

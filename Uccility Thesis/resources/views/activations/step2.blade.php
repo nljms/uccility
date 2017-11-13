@@ -7,10 +7,42 @@
             <div class="panel panel-default">
                 <div class="panel-heading">Activate Account</div>
                 <div class="panel-body">
+                    <div class="container step-indicator">
+                    <div class="row bs-wizard" style="border-bottom:0;"> 
+                        <div class="col-xs-3 bs-wizard-step complete">
+                            <div class="text-center bs-wizard-stepnum">Step 1</div>
+                                <div class="progress"><div class="progress-bar"></div></div>
+                                <a href="#" class="bs-wizard-dot done"></a>
+                                <div class="bs-wizard-info text-center"> Primary Info</div>
+                        </div>         
+                        <div class="col-xs-3 bs-wizard-step active">
+                            <div class="text-center bs-wizard-stepnum active">Step 2</div>
+                            <div class="progress"><div class="progress-bar"></div></div>
+                            <a href="#" class="bs-wizard-dot active"></a>
+                            <div class="bs-wizard-info text-center active">Personal Info</div>
+                        </div>
+                            
+                        <div class="col-xs-3 bs-wizard-step">
+                            <div class="text-center bs-wizard-stepnum">Step 3</div>
+                            <div class="progress"><div class="progress-bar"></div></div>
+                            <a href="#" class="bs-wizard-dot"></a>
+                            <div class="bs-wizard-info text-center">Credentials</div>
+                        </div>
+
+                        <div class="col-xs-3 bs-wizard-step">
+                            <div class="text-center bs-wizard-stepnum">Step 4</div>
+                            <div class="progress"><div class="progress-bar"></div></div>
+                            <a href="#" class="bs-wizard-dot"></a>
+                            <div class="bs-wizard-info text-center">Complete</div>
+                        </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="panel-footer">
                 @include('_includes.errors')
                     <form class="form-horizontal" method="POST" action="/activate/step2">
                         {{ csrf_field() }}
-
+    
                         <div class="form-group{{ $errors->has('address') ? ' has-error' : '' }}">
                             <div class="col-md-8 col-md-offset-2">
                                 <textarea id="address" name="address" rows="2" cols="" class="form-control custom-fields" placeholder="Address" required autofocus></textarea>
@@ -67,7 +99,18 @@
                                     </span>
                                 @endif
                             </div>
-                            <label for="name" class="col-md-12 control-label">Date of Birth</label>
+                            <label for="name" class="col-md-12 control-label" style="color: black;">Date of Birth</label>
+                        </div>
+
+                        <div class="form-group{{ $errors->has('place_of_birth') ? ' has-error' : '' }}">
+                            <div class="col-md-8 col-md-offset-2">
+                                <input id="place-of-birth" type="text" class="form-control custom-fields" name="place_of_birth" value="{{ old('place_of_birth') }}" placeholder="Place of Birth" required>
+                                @if ($errors->has('place_of_birth'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('place_of_birth') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
                         </div>
 
                         <div class="form-group{{ $errors->has('gender') ? ' has-error' : '' }}">
@@ -79,34 +122,6 @@
                                 @if ($errors->has('gender'))
                                     <span class="help-block">
                                         <strong>{{ $errors->first('gender') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                            <label for="gender" class="col-md-12 control-label">Gender</label>
-                        </div>
-
-                        <div class="form-group{{ $errors->has('civil_status') ? ' has-error' : '' }}">
-                            <div class="col-md-8 col-md-offset-2">
-                                <select id="civil-status" class="form-control custom-fields" name="civil_status">
-                                    <option value="Single">Single</option>
-                                    <option value="Married">Married</option>
-                                    <option value="Devorced">Devorced</option>
-                                </select>    
-                                @if ($errors->has('civil_status'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('civil_status') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                            <label for="gender" class="col-md-12 control-label">Civil Status</label>
-                        </div>
-                 
-                        <div class="form-group{{ $errors->has('place_of_birth') ? ' has-error' : '' }}">
-                            <div class="col-md-8 col-md-offset-2">
-                                <input id="place-of-birth" type="text" class="form-control custom-fields" name="place_of_birth" value="{{ old('place_of_birth') }}" placeholder="Place of Birth" required>
-                                @if ($errors->has('place_of_birth'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('place_of_birth') }}</strong>
                                     </span>
                                 @endif
                             </div>
@@ -142,39 +157,6 @@
                             </div>
                         </div>
                     </form>
-                </div>
-                <div class="panel-footer">
-                    <div class="container step-indicator">
-                        <div class="row bs-wizard" style="border-bottom:0;"> 
-                            <div class="col-xs-3 bs-wizard-step complete">
-                                <div class="text-center bs-wizard-stepnum">Step 1</div>
-                                    <div class="progress"><div class="progress-bar"></div></div>
-                                    <a href="#" class="bs-wizard-dot done"></a>
-                                    <div class="bs-wizard-info text-center"> Primary Info</div>
-                                </div>
-                                    
-                                <div class="col-xs-3 bs-wizard-step active">
-                                    <div class="text-center bs-wizard-stepnum active">Step 2</div>
-                                    <div class="progress"><div class="progress-bar"></div></div>
-                                    <a href="#" class="bs-wizard-dot active"></a>
-                                    <div class="bs-wizard-info text-center active">Personal Info</div>
-                                </div>
-                                    
-                                <div class="col-xs-3 bs-wizard-step">
-                                    <div class="text-center bs-wizard-stepnum">Step 3</div>
-                                    <div class="progress"><div class="progress-bar"></div></div>
-                                    <a href="#" class="bs-wizard-dot"></a>
-                                    <div class="bs-wizard-info text-center">Credentials</div>
-                                </div>
-
-                                <div class="col-xs-3 bs-wizard-step">
-                                    <div class="text-center bs-wizard-stepnum">Step 4</div>
-                                    <div class="progress"><div class="progress-bar"></div></div>
-                                    <a href="#" class="bs-wizard-dot"></a>
-                                    <div class="bs-wizard-info text-center">Complete</div>
-                                </div>
-                                </div>
-                            </div>     
                         </div>
                     </div>
                 </div>

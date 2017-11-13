@@ -2,6 +2,7 @@
 
 @section('title', 'Coordinator')
 @section('content')
+@include('headmodal.imageupdate')
 <div class="col-md-12 contents">
  <div class="col-md-12 content-row">
            <div class="col-md-12 content-item">
@@ -10,7 +11,7 @@
                   <div class="col-md-3 profile-pic">
                     <img src="{{asset('img/img_avatar3.png')}}" alt="profile_picture" class="img-thumbnail img-responsive user-profile-pic">
                    <br/><br/>
-                    <button class="browse">Browse</button>
+                    <button type="button" class="browse" data-toggle="modal" data-target="#modalImage">Browse</button>
                 </div>
                 <div class="col-md-9 profile-info" >
                  <h2 class="header" >Personal Details</h2>
