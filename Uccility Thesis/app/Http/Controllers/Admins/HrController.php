@@ -10,6 +10,9 @@ use Illuminate\Support\Facades\DB;
 use App\User;
 use App\Department;
 use App\Professor;
+use App\Topic;
+use App\Question;
+use App\Role;
 
 class HrController extends Controller
 {
@@ -43,6 +46,8 @@ class HrController extends Controller
     public function store(Request $request)
     {
         // Server side validations
+        $professor_role = Role::find(6);
+
         $this->validate($request, [
             'last_name' => 'required|min:2',
             'first_name' => 'required|min:2',
@@ -61,6 +66,7 @@ class HrController extends Controller
         
         $filename = $request->img[0]->store('public/avatar');
         
+        $user->attachRole($professor_role);
         // return $request->all();
         
         return redirect('admin/hr/professors');
@@ -76,6 +82,13 @@ class HrController extends Controller
     public function showEvaluations()
     {
         return view('admin.hr.evaluations');
+    }
+
+    public function showQuestionnaire()
+    {
+        $topics = Topic::all();
+        $questions = Question::all();
+        return view('admin.hr.questionnaire', compact('topics', 'questions'));
     }
 
     /**

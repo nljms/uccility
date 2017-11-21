@@ -19,10 +19,17 @@ Route::get('/', function () {
     return view('guest.index');
 });
 
+Route::get('/sample-evaluation', 'SampleEvaluationController@index');
+Route::post('/sample-evaluation', 'SampleEvaluationController@results');
+Route::get('/sample-evaluation/results/{id}/summary', 'SampleEvaluationController@summary')->name('evaluation.summary');
+
+Route::get('/sample-grading', 'SampleGradingController@index');
+
 // Route::get('/users', function(){
 //     return User::all();
 // });
-
+Route::get('/redirect', 'UserController@redirect');
+Route::get('/wat', 'UserController@displayType');
 Auth::routes();
 
 Route::group(['prefix' => 'activate'], function(){
@@ -37,11 +44,9 @@ Route::group(['prefix' => 'activate'], function(){
     Route::get('/confirmation/{token}', 'ActivateAccountController@confirmation')->name('activate.confirmation');
 });
 
-Route::get('/list', 'SampleController@index')->name('list');
-
 // Users Page, Student and Professor
-Route::get('/professor', function(){
-    return view('professor.dashboard');
+Route::group(['prefix' => 'dashboard', 'middleware' => ['role:professor']], function() {
+    Route::get('/', 'ProfessorController@index');
 });
 
 Route::get('/student', function(){
@@ -52,8 +57,8 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/home/profile', 'HomeController@profile')->name('home.profile');
 Route::get('/home/logout', 'Auth\LoginController@userLogout')->name('user.logout');
 
-// Administration Page, Super Admin - MIS, HR, Registrar, Department Head, Coordinator and Student Assistant
-Route::group(['prefix' => 'admin', 'middleware' => ['role:super admin|hr|registrar|department head|coordinator|assistant coordinator|student assistant']], function() {
+// Administration Page, Super Admin - MIS, HR, Registrar, Department Head & Coordinator
+Route::group(['prefix' => 'admin', 'middleware' => ['role:super admin|hr|registrar|department head|coordinator']], function() {
 
     // Redirect Admins to their respective pages
     Route::get('/', 'Admins\AdminController@index')->name('admin.index');
@@ -80,7 +85,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['role:super admin|hr|registr
         Route::get('/professors', 'Admins\HrController@showProfessors')->name('hr.professors');
         Route::get('/professors/profile/{user_id}', 'Admins\HrController@show')->name('hr.profile');
         Route::get('/evaluations', 'Admins\HrController@showEvaluations')->name('hr.evaluations');
-
+        Route::get('/evaluations/questionnaire', 'Admins\HrController@showQuestionnaire')->name('hr.evaluations.questionnaire');
     });
 
     // Registrar

@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
 use App\News;
+use App\User;
 
 class MisController extends Controller
 {
@@ -19,6 +20,7 @@ class MisController extends Controller
     public function index()
     {
         return view('admin.mis.dashboard');
+
     }
 
     public function users()

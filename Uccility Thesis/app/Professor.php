@@ -17,4 +17,9 @@ class Professor extends Model
     {
         return $this->belongsTo('App\Department');
     }
+
+    public function getEvaluations()
+    {
+    	return $this->hasMany('App\d');
+    }
 }

@@ -8,7 +8,7 @@
             <div class="profile_info">
                 <span>{{ Auth::user()->first_name }} {{ Auth::user()->last_name }}</span>
                 @foreach(Auth::user()->roles as $role)
-                <p>{{ $role->display_name }}</p>
+                <p style="color: white;">{{ $role->display_name }}</p>
                 @endforeach
             </div>
         </div>

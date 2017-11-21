@@ -5,6 +5,11 @@ namespace App\Http\Controllers\Admins;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
+use Auth;
+
+use App\Department;
+use App\DepartmentHead;
+
 class DepartmentHeadController extends Controller
 {
     /**
@@ -14,7 +19,12 @@ class DepartmentHeadController extends Controller
      */
     public function index()
     {
-        return view('admin.departmenthead.dashboard');
+        $id = Auth::user()->id;
+        $user = DepartmentHead::where('user_id', '=', $id)->get();
+        $dept = Department::find($user[0]->department_id);
+        // return view('admin.departmenthead.dashboard');
+        return "<h1>You're an Awesome ".$dept->name." Department Head</h1>";
+        // return $dept;
     }
 
     /**

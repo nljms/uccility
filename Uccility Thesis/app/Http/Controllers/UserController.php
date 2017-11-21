@@ -16,9 +16,47 @@ class UserController extends Controller
         return view('admin.dashboard');
     }
 
-    public function displayType($user_type)
+    public function redirect()
     {
+        $user = auth()->user();
+        
+        if(auth()->guest())
+        {
+            return redirect('/');
+        }
+        else if($user->hasRole('super admin'))
+        {
+            return redirect('/admin/mis');
+        }
+        else if($user->hasRole('hr'))
+        {
+            return redirect('/admin/hr');            
+        }
+        else if($user->hasRole('registrar'))
+        {
+            return redirect('/admin/registrar');            
+        }
+        else if($user->hasRole('department head'))
+        {
+            return redirect('/admin/department-head');            
+        }
+        else if($user->hasRole('coordinator'))
+        {
+            return redirect('/admin/coordinator');            
+        }
+        else if($user->hasRole('professor'))
+        {
+            // return redirect('/dashboard');            
+        }
+        else if($user->hasRole('student'))
+        {
+            return redirect('/');            
+        }
+    }
 
+    public function displayType()
+    {
+        return auth()->user()->roles;
     }
 
     /**
