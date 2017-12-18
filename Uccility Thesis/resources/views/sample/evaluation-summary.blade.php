@@ -20,27 +20,31 @@
 					</tr>
 					<tr>
 						<td>Question</td>
-						<td>5 - Outstanding</td>
-						<td>4 - Above Average</td>
-						<td>3 - Average</td>
-						<td>2 - Fair</td>
-						<td>1 - Poor</td>
+						<td>5 - (Outstanding)</td>
+						<td>4 - (Above Average)</td>
+						<td>3 - (Average)</td>
+						<td>2 - (Fair)</td>
+						<td>1 - (Poor)</td>
 						<td>Result</td>
 					</tr>
 				</thead>
-				<tbody>
+				<tbody id="evaluation-summary">
 					@foreach($ratesPerQuestion as $key => $question_rate)
 						<tr>
-						<!-- $is_admin = ($user['permissions'] == 'admin') ? true : false; -->
 							<td>#{{ $key }}</td>
 							@for($i = 5;$i >= 1; $i--)
-							<td>{{ isset($ratesPerQuestion[$key][$i]) ? $ratesPerQuestion[$key][$i] : 0 }}</td>
+								@if(isset($ratesPerQuestion[$key][$i]))
+									<td class="summable{{ $i }}">{{ $ratesPerQuestion[$key][$i] }}</td>
+								@else
+									<td class="summable{{ $i }}">0</td>
+								@endif
 							@endfor
 							<td></td>
 						</tr>
 					@endforeach
 					<tr>
-						<td colspan="6" style="text-align: right;">Summary: </td>
+						<td style="text-align: right;">Summary: </td>
+						<td colspan="5"></td>
 						<td>Above Average</td>
 					</tr>
 				</tbody>

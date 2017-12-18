@@ -1,4 +1,4 @@
-@extends('layouts.student')
+x`@extends('layouts.student')
 
 @section('content')
 <div class="container">
@@ -9,6 +9,7 @@
                 <div class="panel-body">
                     <div class="col-md-12">
                         <h1>Welcome {{ Auth::user()->first_name }} {{ Auth::user()->last_name }}!</h1>
+                        <h1>{{ Auth::user()->roles }}</h1>
                     </div>
                     <div class="col-md-4 col-md-offset-4">
                         <button class="btn-o" style="color: white; padding: 10px; font-size: 20px;">Click Here to Download the App!</button>

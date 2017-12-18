@@ -13,7 +13,8 @@ class SampleEvaluationController extends Controller
     {
     	$topics = Topic::all();
         $questions = Question::all();
-    	return view('sample.evaluation-form', compact('topics', 'questions'));
+        $alphabet = range('A', 'Z');
+    	return view('sample.evaluation-form', compact('topics', 'questions', 'alphabet'));
     }
 
     public function results(Request $request)
@@ -55,7 +56,8 @@ class SampleEvaluationController extends Controller
 				$ratesPerQuestion[$id][$correspond] = $occurence;
 			}
     	}
-		ksort($ratesPerQuestion);	
+
+		ksort($ratesPerQuestion);
 		return view('sample.evaluation-summary', compact('ratesPerQuestion'));
 	}
 }

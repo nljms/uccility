@@ -58,13 +58,15 @@ class HrController extends Controller
         $image = $request->img[0]->hashName();
         $request->request->add(['photo' => $image]);
         
-        $user = User::create(request(['last_name', 'first_name', 'middle_name', 'extension_name', 'gender', 'civil_status', 'date_of_birth', 'place_of_birth', 'email', 'mobile_no', 'current_address', 'permanent_address', 'photo', 'username', 'password']))->id;
+        $user_id = User::create(request(['last_name', 'first_name', 'middle_name', 'extension_name', 'gender', 'civil_status', 'date_of_birth', 'place_of_birth', 'email', 'mobile_no', 'current_address', 'permanent_address', 'photo', 'username', 'password']))->id;
         
-        $request->request->add(['user_id' => $user]);
+        $request->request->add(['user_id' => $user_id]);
         
         $professor = Professor::create(request(['department_id', 'user_id', 'employment_status', 'campus']));
         
         $filename = $request->img[0]->store('public/avatar');
+
+        $user = User::find($user_id);
         
         $user->attachRole($professor_role);
         // return $request->all();
@@ -88,7 +90,13 @@ class HrController extends Controller
     {
         $topics = Topic::all();
         $questions = Question::all();
-        return view('admin.hr.questionnaire', compact('topics', 'questions'));
+        $alphabet = range('A', 'Z');
+        return view('admin.hr.questionnaire', compact('topics', 'questions', 'alphabet'));
+    }
+
+    public function newTopic()
+    {
+        
     }
 
     /**

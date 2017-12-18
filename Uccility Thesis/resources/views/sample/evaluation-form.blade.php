@@ -8,7 +8,7 @@
 			<form method="post" action="">
 	        {{ csrf_field() }}
 			<h1>STUDENT EVALUATION OF TEACHER PERFORMANCE</h1>
-			<input type="hidden" name="student_id" value="16">
+			<input type="hidden" name="student_id" value="88">
 			<div class="col-md-6 form-group">
 				<label for="teacher-name">Teacher's Name: </label>
 				<select class="form-control" name="professor_id" id="teacher-name" style="color: black;">
@@ -28,7 +28,7 @@
                 <tbody>
                     @foreach($topics as $key => $topic)
 						<tr>
-							<td>{{ ++$key }}.</td>
+							<td>{{ $alphabet[$key] }}.</td>
 							<td colspan="3" style="color: #344577; font-weight: bold;">{{ $topic->description }}</td>
 							<td>
 								<td>

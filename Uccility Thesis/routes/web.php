@@ -14,6 +14,11 @@ use App\User;
 */
 
 
+Route::group(['prefix' => 'apis'], function(){
+    Route::get('professor/{id}', 'Api\ApiController@professorInfo');
+});
+
+
 // Page Info, Guest View
 Route::get('/', function () {
     return view('guest.index');
@@ -47,6 +52,20 @@ Route::group(['prefix' => 'activate'], function(){
 // Users Page, Student and Professor
 Route::group(['prefix' => 'dashboard', 'middleware' => ['role:professor']], function() {
     Route::get('/', 'ProfessorController@index');
+
+    Route::get('/grading-sheet', 'Professor\GradingController@grades');
+
+    Route::get('/grading-sheet/midterm', 'Professor\GradingController@midterm_grades');
+
+    Route::get('/grading-sheet/finalterm', 'Professor\GradingController@finalterm_grades');
+
+    Route::post('/grading-sheet/save', 'Professor\GradingController@saveGrades');
+    
+    Route::get('/criteria', 'Professor\GradingController@criteria');
+    
+    Route::post('/criteria', 'Professor\GradingController@newCriteria');
+
+    Route::post('/criteria/new-criteria-item', 'Professor\GradingController@newCriteriaItem');
 });
 
 Route::get('/student', function(){
@@ -86,6 +105,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['role:super admin|hr|registr
         Route::get('/professors/profile/{user_id}', 'Admins\HrController@show')->name('hr.profile');
         Route::get('/evaluations', 'Admins\HrController@showEvaluations')->name('hr.evaluations');
         Route::get('/evaluations/questionnaire', 'Admins\HrController@showQuestionnaire')->name('hr.evaluations.questionnaire');
+        Route::post('/evaluations/questionnaire/new-topic', 'Admins\HrController@newTopic');
     });
 
     // Registrar

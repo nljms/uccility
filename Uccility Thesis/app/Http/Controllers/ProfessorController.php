@@ -8,6 +8,6 @@ class ProfessorController extends Controller
 {
     public function index()
     {
-        return "You're an Awesome Professor";
+        return view('professor.dashboard');
     }
 }
